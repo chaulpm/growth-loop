@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "vibehost": {
+      "serverUrl": "https://vibehost.matbao.ai/api/agent/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_VIBEHOST_MCP_PAT_HERE"
+      }
+    }
+  }
+}
