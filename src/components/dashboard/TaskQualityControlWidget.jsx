@@ -51,7 +51,7 @@ export default function TaskQualityControlWidget({
   const showMasterPlans = selectedTeam === 'all' || selectedTeam === 'plan';
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-slate-200/80 transition-all flex flex-col justify-between space-y-4">
+    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-slate-200/80 transition-all duration-200 flex flex-col justify-between space-y-4">
       <div>
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 flex-wrap gap-2">
@@ -90,11 +90,11 @@ export default function TaskQualityControlWidget({
 
         {/* Filter chips & Nút "+ Quản lý Team" */}
         <div className="flex items-center justify-between my-3.5 gap-2 flex-wrap">
-          <div className="flex items-center space-x-1.5 overflow-x-auto">
+          <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
             {/* Chip: Tất cả */}
             <button
               onClick={() => setSelectedTeam('all')}
-              className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                 selectedTeam === 'all'
                   ? 'bg-indigo-600 text-white shadow-2xs'
                   : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
@@ -106,7 +106,7 @@ export default function TaskQualityControlWidget({
             {/* Chip: 🚀 Plan (Chờ duyệt) với Chấm đỏ thông báo */}
             <button
               onClick={() => setSelectedTeam('plan')}
-              className={`relative inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+              className={`relative inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                 selectedTeam === 'plan'
                   ? 'bg-indigo-600 text-white shadow-2xs'
                   : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
@@ -130,7 +130,7 @@ export default function TaskQualityControlWidget({
               <button
                 key={team}
                 onClick={() => setSelectedTeam(team)}
-                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer ${
                   selectedTeam === team
                     ? 'bg-indigo-600 text-white shadow-2xs'
                     : 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200'
@@ -144,7 +144,7 @@ export default function TaskQualityControlWidget({
           {/* Nút "+ Quản lý Team" */}
           <button
             onClick={onOpenTeamModal}
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-indigo-700 bg-indigo-50/70 hover:bg-indigo-100 border border-dashed border-indigo-300 transition-all shrink-0 cursor-pointer shadow-2xs"
+            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-indigo-700 bg-indigo-50/70 hover:bg-indigo-100 border border-dashed border-indigo-300 transition-all duration-200 shrink-0 cursor-pointer shadow-2xs"
             title="Mở Modal Quản lý Team & Cài đặt Tự động nhắc việc"
           >
             <Users className="w-3.5 h-3.5 mr-1.5 text-indigo-600" strokeWidth={1.75} />
@@ -153,7 +153,7 @@ export default function TaskQualityControlWidget({
         </div>
 
         {/* Danh sách Master Plans & Tasks */}
-        <div className="space-y-3 max-h-[460px] overflow-y-auto pr-1">
+        <div className="space-y-3 max-h-[460px] overflow-y-auto no-scrollbar pr-1">
           
           {/* 🌟 1. THẺ "MASTER PLAN" (EPIC CARD DESIGN) - GHIM Ở ĐẦU DANH SÁCH */}
           {showMasterPlans && masterPlans.map((plan) => {

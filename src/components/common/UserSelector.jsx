@@ -238,7 +238,7 @@ export default function UserSelector({
 
   // 3. RENDER VARIANT: INLINE / COMPACT (Gọn gàng cho Kanban Card & Tables)
   return (
-    <div className={`relative inline-block ${className}`} ref={containerRef}>
+    <div className={`relative w-full ${className}`} ref={containerRef}>
       <button
         type="button"
         disabled={disabled}
@@ -246,28 +246,30 @@ export default function UserSelector({
           e.stopPropagation();
           if (!disabled) setIsOpen(!isOpen);
         }}
-        className={`inline-flex items-center space-x-2 px-2.5 py-1.5 rounded-xl transition-all group text-left ${
+        className={`w-full flex items-center justify-between space-x-2 px-2 py-1.5 rounded-xl transition-all duration-200 group text-left ${
           disabled
             ? 'opacity-75 cursor-not-allowed'
             : isOpen
-            ? 'bg-indigo-50 ring-1 ring-indigo-300'
-            : 'hover:bg-slate-100 cursor-pointer'
+            ? 'bg-indigo-50/80 ring-1 ring-indigo-300'
+            : 'hover:bg-slate-50 border border-transparent hover:border-slate-200/60 cursor-pointer'
         }`}
         title={`Phụ trách: ${resolvedUser.name} (${resolvedUser.role || 'Member'}). Bấm để chuyển giao.`}
       >
-        <div className={`w-7 h-7 rounded-full ${avatarBg} text-white font-bold text-[10px] flex items-center justify-center shrink-0 shadow-2xs`}>
-          {initials}
-        </div>
-        <div className="min-w-0 text-left">
-          <span className="font-bold text-slate-800 text-xs truncate block group-hover:text-indigo-950 leading-tight">
-            {resolvedUser.name}
-          </span>
-          <span className="text-[10px] text-slate-400 truncate block leading-tight mt-0.5">
-            {resolvedUser.role || 'Marketing'}
-          </span>
+        <div className="flex items-center space-x-2 min-w-0 flex-1">
+          <div className={`w-7 h-7 rounded-full ${avatarBg} text-white font-bold text-[10px] flex items-center justify-center shrink-0 shadow-2xs`}>
+            {initials}
+          </div>
+          <div className="min-w-0 flex-1 text-left">
+            <span className="font-bold text-slate-800 text-xs truncate block group-hover:text-indigo-950 leading-tight">
+              {resolvedUser.name}
+            </span>
+            <span className="text-[10px] text-slate-400 truncate block leading-tight mt-0.5">
+              {resolvedUser.role || 'Marketing'}
+            </span>
+          </div>
         </div>
         {!disabled && (
-          <ChevronDown className={`w-3 h-3 text-slate-400 group-hover:text-indigo-600 shrink-0 ml-0.5 ${isOpen ? 'rotate-180' : ''}`} />
+          <ChevronDown className={`w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 shrink-0 ml-1 transition-transform duration-200 ${isOpen ? 'rotate-180 text-indigo-600' : ''}`} />
         )}
       </button>
 

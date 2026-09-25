@@ -342,7 +342,7 @@ export default function TaskWorkflowBoard({
         draggable={!isLocked}
         onDragStart={(e) => !isLocked && handleDragStart(e, task.id)}
         onClick={() => handleCardClick(task)}
-        className={`group bg-white rounded-2xl p-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] border border-slate-200/70 border-l-4 ${borderLeftColor} hover:border-indigo-200 hover:shadow-md transition-all cursor-pointer space-y-3 ${
+        className={`group bg-white rounded-2xl p-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] border border-slate-200/70 border-l-4 ${borderLeftColor} hover:border-indigo-200 hover:shadow-md transition-all duration-200 cursor-pointer space-y-3 ${
           isLocked ? 'opacity-65 bg-slate-50/90' : ''
         }`}
         title={isLocked ? (task.lockMessage || 'Chờ Alex duyệt Master Plan để mở khóa') : undefined}
@@ -387,11 +387,9 @@ export default function TaskWorkflowBoard({
           </p>
         </div>
 
-        {/* Phụ trách & Deadline */}
-        <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
-          
-          {/* Assignee Avatar + Tên (Interactive UserSelector) */}
-          <div className="flex items-center space-x-1.5" onClick={(e) => e.stopPropagation()}>
+        {/* Footer: Thông tin Phụ trách (Assignee) */}
+        <div className="pt-2.5 border-t border-slate-100 flex items-center text-[11px]">
+          <div className="w-full min-w-0" onClick={(e) => e.stopPropagation()}>
             <UserSelector
               user={task.assignee}
               teamMembers={teamMembers}
@@ -410,24 +408,10 @@ export default function TaskWorkflowBoard({
                 }
               }}
               variant="inline"
+              className="w-full"
               disabled={isLocked}
             />
           </div>
-
-          {/* Deadline Indicator */}
-          <div className="flex items-center space-x-1">
-            {task.isOverdue ? (
-              <span className="flex items-center text-[10px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-100">
-                <Clock className="w-3 h-3 mr-1 text-rose-500" strokeWidth={1.75} />
-                Trễ {task.overdueDays}d
-              </span>
-            ) : (
-              <span className="text-[11px] text-slate-400 font-normal">
-                {task.deadline || 'Hôm nay'}
-              </span>
-            )}
-          </div>
-
         </div>
 
       </div>
@@ -526,7 +510,7 @@ export default function TaskWorkflowBoard({
         <div className="pt-3 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3.5 text-xs">
           
           {/* Lọc theo Nhân sự */}
-          <div className="flex items-center space-x-1.5 overflow-x-auto pb-1 md:pb-0">
+          <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
             <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mr-1 shrink-0 flex items-center">
               <User className="w-3 h-3 mr-1 text-slate-500" strokeWidth={1.75} /> Nhân sự:
             </span>

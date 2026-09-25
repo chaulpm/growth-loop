@@ -193,12 +193,12 @@ export default function ProductCard3Zone({ product, onTriggerAction }) {
           <div className="flex justify-end">
             <button
               onClick={() => onTriggerAction(product, aiDiagnosis?.actionCtaText)}
-              className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold text-white transition-all shadow-2xs hover:opacity-95 ${
+              className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold text-white transition-all duration-200 shadow-2xs hover:shadow-md cursor-pointer ${
                 aiDiagnosis?.urgency === 'danger'
-                  ? 'bg-rose-600'
+                  ? 'bg-rose-600 hover:bg-rose-700'
                   : aiDiagnosis?.urgency === 'warning'
-                  ? 'bg-amber-600'
-                  : 'bg-indigo-600'
+                  ? 'bg-amber-600 hover:bg-amber-700'
+                  : 'bg-indigo-600 hover:bg-indigo-700'
               }`}
             >
               <Zap className="w-3.5 h-3.5 mr-1.5" />

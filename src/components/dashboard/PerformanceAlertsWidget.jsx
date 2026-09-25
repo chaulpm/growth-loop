@@ -5,7 +5,7 @@ export default function PerformanceAlertsWidget({ alerts, onApplyOption }) {
   const [expandedAlertId, setExpandedAlertId] = useState(null);
 
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-slate-200/80 transition-all flex flex-col justify-between space-y-4">
+    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md border border-slate-200/80 transition-all duration-200 flex flex-col justify-between space-y-4">
       <div>
         {/* Header */}
         <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
@@ -111,7 +111,7 @@ export default function PerformanceAlertsWidget({ alerts, onApplyOption }) {
 
                   <button
                     onClick={() => alert(`Đã kích hoạt hành động cho ${item.productName}`)}
-                    className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold transition-all shadow-xs hover:scale-102 active:scale-98 cursor-pointer ${actionBtnStyle}`}
+                    className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 shadow-xs hover:shadow-md cursor-pointer ${actionBtnStyle}`}
                   >
                     <Zap className="w-3 h-3 mr-1" strokeWidth={1.75} />
                     {item.actionText}

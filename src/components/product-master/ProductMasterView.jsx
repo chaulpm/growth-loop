@@ -111,7 +111,7 @@ export default function ProductMasterView({
             {/* Nút 1: Tất cả */}
             <button
               onClick={() => setSelectedBrand('all')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
                 selectedBrand === 'all'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -123,7 +123,7 @@ export default function ProductMasterView({
             {/* Nút 2: 🚀 Khối Alpha (SaaS & Cloud) */}
             <button
               onClick={() => setSelectedBrand('Alpha')}
-              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
                 selectedBrand === 'Alpha'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -138,7 +138,7 @@ export default function ProductMasterView({
             {/* Nút 3: ⚡ Khối Beta (Enterprise Solutions) */}
             <button
               onClick={() => setSelectedBrand('Beta')}
-              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
                 selectedBrand === 'Beta'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
@@ -156,7 +156,7 @@ export default function ProductMasterView({
 
         {/* Thanh lọc trạng thái bổ trợ nhỏ gọn (Sub-bar) */}
         <div className="flex items-center justify-between px-3 text-xs text-slate-500">
-          <div className="flex items-center space-x-1.5 overflow-x-auto">
+          <div className="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
             <span className="text-[11px] font-medium text-slate-400 mr-1 flex items-center">
               <Filter className="w-3 h-3 mr-1" /> Lọc trạng thái:
             </span>
@@ -169,7 +169,7 @@ export default function ProductMasterView({
               <button
                 key={f.id}
                 onClick={() => setFilterType(f.id)}
-                className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold transition-colors ${
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold transition-all duration-200 cursor-pointer ${
                   filterType === f.id
                     ? 'bg-indigo-600 text-white'
                     : 'text-slate-600 hover:bg-slate-100'
