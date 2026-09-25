@@ -24,11 +24,11 @@
   - `redeploy_project`, `rollback_project`: Cập nhật mã nguồn và quản lý phiên bản
   - `get_build_logs`, `get_runtime_logs`, `diagnose_deploy`: Giám sát và chẩn đoán sự cố
 - **Deployed Production Website**:
-  - **Live URL (Auth-Secured)**: `https://growthloop-app.cmc-1.vibenode.matbao.ai` (Supabase Auth Mandatory Gate)
-  - **Public Demo URL**: `https://growthloop.cmc-1.vibenode.matbao.ai`
-  - **Legacy URL**: `https://growth-loop.cmc-1.vibenode.matbao.ai`
+  - **Official Public Demo (Auth-Secured)**: `https://growthloop-demo.cmc-1.vibenode.matbao.ai` (Supabase Auth Mandatory Gate + 100% White-label)
+  - **Live URL (App)**: `https://growthloop-app.cmc-1.vibenode.matbao.ai`
+  - **Legacy URL**: `https://growthloop.cmc-1.vibenode.matbao.ai`
   - **Status**: `online`
-  - **Specifications**: 1 vCPU, 512MB RAM, Nginx Static Single-Bundle SPA
+  - **Specifications**: Nginx Static Single-Bundle SPA (Vibe Host Pro)
 
 ---
 
