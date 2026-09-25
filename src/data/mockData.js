@@ -1,14 +1,14 @@
-// Dữ liệu thực tế cho Gemini-Native Growth OS: 2 nhánh thương hiệu MBC & MBI
+// Dữ liệu thực tế cho Growth OS: 2 Khối Alpha (SaaS & Cloud) & Beta (Enterprise Solutions)
 
 export const INITIAL_PRODUCTS = [
   // ==========================================
-  // NHÁNH 1: 🏢 MBC (Matbao-corp) - 8 Sản phẩm
+  // KHỐI 1: 🚀 Khối Alpha (SaaS & Cloud) - 8 Sản phẩm
   // ==========================================
   {
     id: "mbc-vibe-host",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
-    name: "Vibe Host",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
+    name: "Cloud Server Pro",
     branch: "High-Performance Hosting",
     topicGroup: "Hosting tốc độ cao cho Web & App",
     problemStatement: "Website doanh nghiệp tải chậm, sập nguồn khi chạy quảng cáo tăng traffic, mất khách hàng tiềm năng.",
@@ -16,13 +16,13 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-01",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbc_892104",
+      adAccountId: "act_alpha_892104",
       lastSynced: "3 phút trước",
       activeCampaignsCount: 2,
       startDate: "10/09/2026",
       conversions: { leads: 190, sqls: 14, cpl: "$4.10", spend: "$779", cvr: "7.4%" },
       runningCampaigns: [
-        { name: "[PERF] Vibe Host NVMe Tải trang dưới 0.8s", status: "Active", spend: "$450", leads: 115 },
+        { name: "[PERF] Cloud Server NVMe Tải trang dưới 0.8s", status: "Active", spend: "$450", leads: 115 },
         { name: "[AGENCY] Gói Hosting chuyên dụng cho WordPress", status: "Active", spend: "$329", leads: 75 }
       ]
     },
@@ -36,8 +36,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-domain",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Tên Miền",
     branch: "Domain Registrar & DNS",
     topicGroup: "Đăng ký & Quản trị Tên miền Quốc gia / Quốc tế",
@@ -58,7 +58,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-05",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbc_892105",
+      adAccountId: "act_alpha_892105",
       lastSynced: "1 phút trước",
       activeCampaignsCount: 4,
       startDate: "01/09/2026",
@@ -80,8 +80,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-google-workspace",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Google Workspace",
     branch: "Cloud Productivity",
     topicGroup: "Hệ sinh thái làm việc cộng tác & Gmail Doanh nghiệp",
@@ -90,7 +90,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-10",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbc_892106",
+      adAccountId: "act_alpha_892106",
       lastSynced: "5 phút trước",
       activeCampaignsCount: 2,
       startDate: "05/09/2026",
@@ -103,15 +103,15 @@ export const INITIAL_PRODUCTS = [
     aiDiagnosis: {
       badge: "High Intent",
       problem: "Khách hàng quan tâm nhất yếu tố hỗ trợ kỹ thuật 24/7 và hóa đơn VAT điện tử.",
-      solution: "Tập trung thông điệp Hỗ trợ kỹ thuật 24/7 của Mắt Bão và chính sách di chuyển dữ liệu 0đ.",
+      solution: "Tập trung thông điệp Hỗ trợ kỹ thuật 24/7 của TechCorp và chính sách di chuyển dữ liệu 0đ.",
       actionCtaText: "Đẩy Angle Hỗ Trợ 24/7",
       urgency: "success"
     }
   },
   {
     id: "mbc-ms365-copilot",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Microsoft 365 Copilot",
     branch: "Enterprise AI & Workplace",
     topicGroup: "Ứng dụng Trí tuệ nhân tạo AI vào văn phòng hiện đại",
@@ -120,7 +120,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-12",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbc_892107",
+      adAccountId: "act_alpha_892107",
       lastSynced: "6 phút trước",
       activeCampaignsCount: 2,
       startDate: "08/09/2026",
@@ -140,8 +140,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-business-email",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Email doanh nghiệp",
     branch: "Secure Business Email",
     topicGroup: "Hộp thư theo tên miền riêng chống Spam & Blacklist",
@@ -150,7 +150,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-15",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbc_892108",
+      adAccountId: "act_alpha_892108",
       lastSynced: "10 phút trước",
       activeCampaignsCount: 1,
       startDate: "12/09/2026",
@@ -169,8 +169,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-cloud-hosting",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Cloud Hosting",
     branch: "Cloud Infrastructure",
     topicGroup: "Hạ tầng đám mây co giãn theo lưu lượng",
@@ -179,7 +179,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-09-01",
     metaSync: {
       status: "disconnected",
-      adAccountId: "act_mbc_892109",
+      adAccountId: "act_alpha_892109",
       lastSynced: "Chưa liên kết",
       activeCampaignsCount: 0,
       startDate: "Chưa có",
@@ -196,8 +196,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-vmc",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Chứng chỉ VMC",
     branch: "Email Brand Identity & BIMI",
     topicGroup: "Xác thực thương hiệu hiển thị Logo tích xanh trên Gmail",
@@ -206,7 +206,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-09-05",
     metaSync: {
       status: "disconnected",
-      adAccountId: "act_mbc_892110",
+      adAccountId: "act_alpha_892110",
       lastSynced: "Chưa liên kết",
       activeCampaignsCount: 0,
       startDate: "Chưa có",
@@ -223,8 +223,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbc-smime",
-    brand: "MBC",
-    brandName: "MBC (Matbao-corp)",
+    brand: "Alpha",
+    brandName: "Khối Alpha (SaaS & Cloud)",
     name: "Chứng chỉ S-MIME",
     branch: "Email Encryption & Digital Sign",
     topicGroup: "Mã hóa nội dung thư tín & chữ ký số email doanh nghiệp",
@@ -233,7 +233,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-09-08",
     metaSync: {
       status: "disconnected",
-      adAccountId: "act_mbc_892111",
+      adAccountId: "act_alpha_892111",
       lastSynced: "Chưa liên kết",
       activeCampaignsCount: 0,
       startDate: "Chưa có",
@@ -250,12 +250,12 @@ export const INITIAL_PRODUCTS = [
   },
 
   // ==========================================
-  // NHÁNH 2: 🏢 MBI (Matbao-invoice) - 4 Sản phẩm
+  // KHỐI 2: ⚡ Khối Beta (Enterprise Solutions) - 4 Sản phẩm
   // ==========================================
   {
     id: "mbi-einvoice",
-    brand: "MBI",
-    brandName: "MBI (Matbao-invoice)",
+    brand: "Beta",
+    brandName: "Khối Beta (Enterprise Solutions)",
     name: "Hoá đơn điện tử",
     branch: "E-Invoice Nghị định 123",
     topicGroup: "Hệ thống phát hành & quản trị hóa đơn thuế hợp chuẩn",
@@ -264,7 +264,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-01",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbi_391028",
+      adAccountId: "act_beta_391028",
       lastSynced: "2 phút trước",
       activeCampaignsCount: 3,
       startDate: "01/09/2026",
@@ -285,8 +285,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbi-econtract",
-    brand: "MBI",
-    brandName: "MBI (Matbao-invoice)",
+    brand: "Beta",
+    brandName: "Khối Beta (Enterprise Solutions)",
     name: "Hợp đồng điện tử",
     branch: "E-Contract & Digital Signature",
     topicGroup: "Giải pháp ký kết hợp đồng số không giấy tờ",
@@ -295,7 +295,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-15",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbi_391029",
+      adAccountId: "act_beta_391029",
       lastSynced: "7 phút trước",
       activeCampaignsCount: 2,
       startDate: "06/09/2026",
@@ -315,8 +315,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbi-input-invoice",
-    brand: "MBI",
-    brandName: "MBI (Matbao-invoice)",
+    brand: "Beta",
+    brandName: "Khối Beta (Enterprise Solutions)",
     name: "Hoá đơn đầu vào",
     branch: "Automated Invoice Processing",
     topicGroup: "Tự động tra cứu, đối soát & phát hiện hóa đơn rủi ro",
@@ -325,7 +325,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-08-20",
     metaSync: {
       status: "live",
-      adAccountId: "act_mbi_391030",
+      adAccountId: "act_beta_391030",
       lastSynced: "9 phút trước",
       activeCampaignsCount: 1,
       startDate: "11/09/2026",
@@ -344,8 +344,8 @@ export const INITIAL_PRODUCTS = [
   },
   {
     id: "mbi-digital-signature",
-    brand: "MBI",
-    brandName: "MBI (Matbao-invoice)",
+    brand: "Beta",
+    brandName: "Khối Beta (Enterprise Solutions)",
     name: "Chữ ký số",
     branch: "Token HSM & Cloud CA",
     topicGroup: "Chứng thư số cá nhân & doanh nghiệp ký thuế, hải quan, bảo hiểm",
@@ -354,7 +354,7 @@ export const INITIAL_PRODUCTS = [
     createdAt: "2026-09-01",
     metaSync: {
       status: "disconnected",
-      adAccountId: "act_mbi_391031",
+      adAccountId: "act_beta_391031",
       lastSynced: "Chưa liên kết",
       activeCampaignsCount: 0,
       startDate: "Chưa có",
@@ -364,14 +364,14 @@ export const INITIAL_PRODUCTS = [
     aiDiagnosis: {
       badge: "Thiếu Camp",
       problem: "Chưa có chiến dịch riêng trong tháng; khách hàng thường chỉ mua bị động khi hết hạn.",
-      solution: "Chạy chiến dịch Cross-sell: Combo Ký số Cloud CA kèm phần mềm hóa đơn điện tử MBI.",
+      solution: "Chạy chiến dịch Cross-sell: Combo Ký số Cloud CA kèm phần mềm phần mềm hóa đơn điện tử.",
       actionCtaText: "Tạo Camp Combo CA + HĐ",
       urgency: "danger"
     }
   }
 ];
 
-// Dữ liệu cho Dashboard The Control Center (Cập nhật theo thực tế 12 sản phẩm MBC & MBI)
+// Dữ liệu cho Dashboard The Control Center (Cập nhật theo thực tế 12 sản phẩm Alpha & Beta)
 export const DASHBOARD_DATA = {
   coverage: {
     totalProducts: 12,
@@ -382,7 +382,7 @@ export const DASHBOARD_DATA = {
     coveragePercent: 67
   },
 
-  // Widget 2: Performance Alerts (Gắn liền với sản phẩm MBC & MBI)
+  // Widget 2: Performance Alerts (Gắn liền với sản phẩm Alpha & Beta)
   performanceAlerts: [
     {
       id: "alt-01",
@@ -401,7 +401,7 @@ export const DASHBOARD_DATA = {
     {
       id: "alt-02",
       severity: "warning",
-      productName: "Vibe Host",
+      productName: "Cloud Server Pro",
       metricChange: "CTR Search -22%",
       aiSuggestion: "Hệ thống đề xuất A/B test tiêu đề mới: 'Uptime 99.99% & Miễn phí chuyển website NVMe trong 1 giờ'.",
       actionText: "Duyệt Copy Mới",
@@ -410,7 +410,7 @@ export const DASHBOARD_DATA = {
     {
       id: "alt-03",
       severity: "success",
-      productName: "Hoá đơn điện tử (MBI)",
+      productName: "E-Invoicing Platform (Beta)",
       metricChange: "ROAS 5.4x (Đạt đỉnh)",
       aiSuggestion: "Ưu đãi tặng 500 số hóa đơn đang chuyển đổi vượt KPI ($3.60/Lead). Đề xuất tăng 25% ngân sách.",
       actionText: "Scale +25% Budget",
@@ -418,20 +418,20 @@ export const DASHBOARD_DATA = {
     }
   ],
 
-  // Master Campaign Plans chờ Quản Lý (Lâm Quang Thịnh) duyệt
+  // Master Campaign Plans chờ Quản Lý (Alex) duyệt
   masterPlans: [
     {
       id: "plan-vibe-host-q4",
       productId: "mbc-vibe-host",
-      productName: "Vibe Host",
-      brand: "MBC",
-      title: "[Master Plan] Kế hoạch Vibe Host: Chống nghẽn cổ chai mùa cao điểm",
-      creator: "Lê Phạm Minh Châu",
-      creatorRole: "Senior Growth Executive",
-      reviewer: "Lâm Quang Thịnh",
-      reviewerRole: "Acting Marketing Manager",
-      approver: "Lâm Quang Thịnh",
-      approverRole: "Acting Marketing Manager",
+      productName: "Cloud Server Pro",
+      brand: "Alpha",
+      title: "[Master Plan] Kế hoạch Cloud Server Pro: Chống nghẽn cổ chai mùa cao điểm",
+      creator: "Sarah",
+      creatorRole: "Growth Lead",
+      reviewer: "Alex",
+      reviewerRole: "Head of Marketing",
+      approver: "Alex",
+      approverRole: "Head of Marketing",
       timeline: "01/10/2026 - 31/10/2026",
       timelineDays: 31,
       targetKpi: "50 SQLs",
@@ -469,12 +469,12 @@ export const DASHBOARD_DATA = {
     {
       id: "tsk-gen-vibe-1",
       title: "[Camp 1] Viết Ad Copy & Bài Social: Giới thiệu hạ tầng NVMe",
-      campaign: "Kế hoạch Vibe Host",
-      brand: "MBC",
+      campaign: "Kế hoạch Cloud Server Pro",
+      brand: "Alpha",
       team: "Content",
       type: "Content",
-      assignee: "Hoàng Minh Khôi",
-      assigneeRole: "Social Executive",
+      assignee: "Member A",
+      assigneeRole: "Social Media Lead",
       stage: "in_progress",
       status: "pending",
       statusLabel: "Chờ mở khóa",
@@ -482,7 +482,7 @@ export const DASHBOARD_DATA = {
       isOverdue: false,
       masterPlanId: "plan-vibe-host-q4",
       isLocked: true,
-      lockMessage: "Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa",
+      lockMessage: "Chờ Alex duyệt Master Plan để mở khóa",
       severity: "normal",
       urgency: "normal",
       creativeBrief: {
@@ -496,12 +496,12 @@ export const DASHBOARD_DATA = {
     {
       id: "tsk-gen-vibe-2",
       title: "[Camp 2] Thiết kế Bộ Banner KV Promo: Promo tặng thêm tháng sử dụng",
-      campaign: "Kế hoạch Vibe Host",
-      brand: "MBC",
+      campaign: "Kế hoạch Cloud Server Pro",
+      brand: "Alpha",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Duy Quý",
-      assigneeRole: "Intern",
+      assignee: "Member C",
+      assigneeRole: "Design & Creative",
       stage: "not_started",
       status: "pending",
       statusLabel: "Chờ mở khóa",
@@ -509,7 +509,7 @@ export const DASHBOARD_DATA = {
       isOverdue: false,
       masterPlanId: "plan-vibe-host-q4",
       isLocked: true,
-      lockMessage: "Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa",
+      lockMessage: "Chờ Alex duyệt Master Plan để mở khóa",
       severity: "normal",
       urgency: "normal",
       creativeBrief: {
@@ -523,12 +523,12 @@ export const DASHBOARD_DATA = {
     {
       id: "tsk-01",
       title: "Banner Carousel 5 slides: Ưu đãi Tên Miền .VN tặng Email",
-      campaign: "Tên Miền Mắt Bão",
-      brand: "MBC",
+      campaign: "Tên Miền TechCorp",
+      brand: "Alpha",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Duy Quý",
-      assigneeRole: "Intern",
+      assignee: "Member C",
+      assigneeRole: "Design & Creative",
       stage: "in_review",
       status: "overdue",
       statusLabel: "Trễ 2 ngày",
@@ -541,9 +541,9 @@ export const DASHBOARD_DATA = {
         objective: "Quảng cáo Facebook Ads Carousel 5 slides cho chương trình Đăng ký .VN tặng Email Doanh nghiệp",
         targetPersona: "Chủ doanh nghiệp thành lập mới, Startup, cá nhân làm thương hiệu",
         keyMessage: "Khởi tạo thương hiệu chuyên nghiệp: Tên miền .VN + Email Doanh nghiệp riêng bảo mật 100%",
-        deliverables: "5 slides vuông 1080x1080 (Carousel Ads) chuẩn Material 3 + Logo Mắt Bão",
+        deliverables: "5 slides vuông 1080x1080 (Carousel Ads) chuẩn Material 3 + Logo TechCorp",
         toneOfVoice: "Hiện đại, tươi sáng, khuyến mại hấp dẫn, uy tín",
-        brandSpecs: "Brand Primary: #2563EB (MBC Blue), Font: Inter / Be Vietnam Pro, Text ratio < 20%"
+        brandSpecs: "Brand Primary: #2563EB (Alpha Blue), Font: Inter / Be Vietnam Pro, Text ratio < 20%"
       },
       assetPreview: {
         type: "design",
@@ -566,19 +566,19 @@ export const DASHBOARD_DATA = {
         analysisText: "Text trên banner (24%) hơi nhiều so với chuẩn khuyến nghị 20% của Meta Ads, có thể giảm bớt câu phụ. Màu sắc nhận diện #2563EB và nút CTA 'Đăng Ký Ngay' chuẩn Brand Guidelines."
       },
       feedbackChat: [
-        { id: "c1", sender: "Marketer", name: "Lê Phạm Minh Châu", time: "20/09 09:30", text: "Quý ơi, banner slide 2 và 3 chữ còn hơi dày, check thử quy tắc 20% text của Meta xem có bị cảnh báo giảm reach không nhé." },
-        { id: "c2", sender: "Assignee", name: "Nguyễn Duy Quý", time: "20/09 11:15", text: "Dạ em đã tinh giản bớt 2 dòng mô tả và tăng size nút CTA lên rồi ạ! Chị Châu vào duyệt lại giúp em nhé." }
+        { id: "c1", sender: "Marketer", name: "Sarah", time: "20/09 09:30", text: "Member C ơi, banner slide 2 và 3 chữ còn hơi dày, check thử quy tắc 20% text của Meta xem có bị cảnh báo giảm reach không nhé." },
+        { id: "c2", sender: "Assignee", name: "Member C", time: "20/09 11:15", text: "Dạ em đã tinh giản bớt 2 dòng mô tả và tăng size nút CTA lên rồi ạ! Sarah vào duyệt lại giúp em nhé." }
       ]
     },
     {
       id: "tsk-02",
       title: "Banner Leaderboard 1200x628: Tặng 500 số Hóa đơn điện tử [A/B Test]",
-      campaign: "Hoá đơn điện tử MBI",
-      brand: "MBI",
+      campaign: "E-Invoicing Platform",
+      brand: "Beta",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Ngọc Khánh",
-      assigneeRole: "Marketing Executive",
+      assignee: "Member B",
+      assigneeRole: "Performance Marketing",
       stage: "in_review",
       status: "overdue",
       statusLabel: "Trễ 1 ngày",
@@ -596,14 +596,14 @@ export const DASHBOARD_DATA = {
       creativeBrief: {
         objective: "Banner hiển thị Lead Form chiến dịch tặng 500 số hóa đơn điện tử mùa quyết toán quý 3",
         targetPersona: "Kế toán trưởng, Giám đốc tài chính, Doanh nghiệp mới thành lập",
-        keyMessage: "Tặng 500 số hóa đơn điện tử MBI chuẩn Nghị định 123 + Kết nối tự động phần mềm kế toán",
-        deliverables: "Banner ngang 1200x628 (Lead Gen / Single Image) + Logo MBI",
+        keyMessage: "Tặng 500 số phần mềm hóa đơn điện tử chuẩn Nghị định 123 + Kết nối tự động phần mềm kế toán",
+        deliverables: "Banner ngang 1200x628 (Lead Gen / Single Image) + Logo Khối Beta",
         toneOfVoice: "Chuyên nghiệp, tin cậy, rõ nét pháp lý",
-        brandSpecs: "Brand Primary: #059669 (MBI Emerald), Phông chữ rõ ràng, số 500 làm điểm nhấn thị giác"
+        brandSpecs: "Brand Primary: #059669 (Beta Emerald), Phông chữ rõ ràng, số 500 làm điểm nhấn thị giác"
       },
       assetPreview: {
         type: "design",
-        assetName: "MBI_Promo500_Leaderboard_1200x628.jpg",
+        assetName: "Beta_Promo500_Leaderboard_1200x628.jpg",
         dimensions: "1200x628 (Landscape)",
         format: "JPG / Web Optimized",
         mockupTitle: "TẶNG 500 SỐ HÓA ĐƠN ĐIỆN TỬ CHO DOANH NGHIỆP MỚI",
@@ -619,21 +619,21 @@ export const DASHBOARD_DATA = {
         textDensityScore: 16,
         brandScore: 98,
         ctaScore: 95,
-        analysisText: "Banner đạt chuẩn xuất sắc: Mật độ chữ 16% (< 20%), màu xanh Emerald #059669 chuẩn bộ nhận diện MBI. Điểm nhấn '500 Số HĐ' cực kỳ thu hút thị giác."
+        analysisText: "Banner đạt chuẩn xuất sắc: Mật độ chữ 16% (< 20%), màu xanh Emerald #059669 chuẩn bộ nhận diện Khối Beta. Điểm nhấn '500 Số HĐ' cực kỳ thu hút thị giác."
       },
       feedbackChat: [
-        { id: "c1", sender: "Assignee", name: "Nguyễn Ngọc Khánh", time: "21/09 14:05", text: "Banner Leaderboard cho chiến dịch MBI em đã lên xong, nhờ Lead review sớm để set camp chạy phễu lead tối nay ạ." }
+        { id: "c1", sender: "Assignee", name: "Member B", time: "21/09 14:05", text: "Banner Leaderboard cho chiến dịch Khối Beta em đã lên xong, nhờ Lead review sớm để set camp chạy phễu lead tối nay ạ." }
       ]
     },
     {
       id: "tsk-03",
       title: "Ad Copy Facebook: Cảnh báo rủi ro hóa đơn từ DN bỏ trốn",
-      campaign: "Hoá đơn đầu vào MBI",
-      brand: "MBI",
+      campaign: "Smart AP Automation",
+      brand: "Beta",
       team: "Content",
       type: "Content",
-      assignee: "Hoàng Minh Khôi",
-      assigneeRole: "Social Executive",
+      assignee: "Member A",
+      assigneeRole: "Social Media Lead",
       stage: "in_review",
       status: "pending_qa",
       statusLabel: "Chờ duyệt",
@@ -651,7 +651,7 @@ export const DASHBOARD_DATA = {
       assetPreview: {
         type: "copy",
         headline: "⚠️ Doanh nghiệp bạn có đang cầm phải hóa đơn từ doanh nghiệp bỏ trốn?",
-        primaryText: "Chỉ một hóa đơn mua vào sai phạm có thể khiến doanh nghiệp bị truy thu thuế và xử phạt hàng trăm triệu đồng!\n\n🔍 Giải pháp Hoá Đơn Đầu Vào MBI:\n✅ Tự động đồng bộ từ cổng Tổng cục Thuế\n✅ Cảnh báo tức thì nhà cung cấp ngừng hoạt động hoặc rủi ro cao\n✅ Đối soát bảng kê chi tiết chỉ trong 30 giây\n\n👉 Dùng thử miễn phí kiểm tra 100 hóa đơn đầu tiên ngay hôm nay!",
+        primaryText: "Chỉ một hóa đơn mua vào sai phạm có thể khiến doanh nghiệp bị truy thu thuế và xử phạt hàng trăm triệu đồng!\n\n🔍 Giải pháp Smart AP Automation:\n✅ Tự động đồng bộ từ cổng Tổng cục Thuế\n✅ Cảnh báo tức thì nhà cung cấp ngừng hoạt động hoặc rủi ro cao\n✅ Đối soát bảng kê chi tiết chỉ trong 30 giây\n\n👉 Dùng thử miễn phí kiểm tra 100 hóa đơn đầu tiên ngay hôm nay!",
         ctaButton: "Dùng Thử Miễn Phí",
         wordCount: 78
       },
@@ -663,18 +663,18 @@ export const DASHBOARD_DATA = {
         analysisText: "Hook mở đầu mạnh mẽ, đánh trúng tâm lý lo ngại truy thu thuế của Kế toán. CTA rõ ràng, có offer dùng thử 100 hóa đơn phù hợp chuyển đổi Top-of-Funnel."
       },
       feedbackChat: [
-        { id: "c1", sender: "Assignee", name: "Hoàng Minh Khôi", time: "22/09 08:30", text: "Em đã hoàn thiện Ad Copy theo angle cảnh báo rủi ro thuế MBI, chị Châu xem qua giúp em nhé!" }
+        { id: "c1", sender: "Assignee", name: "Member A", time: "22/09 08:30", text: "Em đã hoàn thiện Ad Copy theo angle cảnh báo rủi ro thuế doanh nghiệp, Sarah xem qua giúp em nhé!" }
       ]
     },
     {
       id: "tsk-04",
       title: "Short Video 15s: Demo so sánh tốc độ tải trang Vibe Host < 0.8s",
-      campaign: "Vibe Host NVMe",
-      brand: "MBC",
+      campaign: "Cloud Server NVMe",
+      brand: "Alpha",
       team: "Video",
       type: "Video",
-      assignee: "Hoàng Minh Khôi",
-      assigneeRole: "Social Executive",
+      assignee: "Member A",
+      assigneeRole: "Social Media Lead",
       stage: "revision",
       status: "overdue",
       statusLabel: "Yêu cầu sửa",
@@ -699,7 +699,7 @@ export const DASHBOARD_DATA = {
         storyboard: [
           { sec: "0-3s", scene: "Hook: Màn hình so sánh 2 điện thoại cùng mở web" },
           { sec: "4-10s", scene: "Vibe Host load 0.78s - Bên kia vẫn xoay tròn" },
-          { sec: "11-15s", scene: "Logo Mắt Bão Vibe Host + CTA Nhận ưu đãi 30%" }
+          { sec: "11-15s", scene: "Logo TechCorp Vibe Host + CTA Nhận ưu đãi 30%" }
         ]
       },
       qaReport: {
@@ -707,22 +707,22 @@ export const DASHBOARD_DATA = {
         textDensityScore: 90,
         brandScore: 75,
         ctaScore: 90,
-        analysisText: "Video có hook cuốn hút. Tuy nhiên logo nhận diện Mắt Bão xuất hiện ở giây thứ 11 là quá muộn với video ngắn 15s (người xem lướt qua sau 3-5s). Cần đưa watermark logo Mắt Bão lên góc trên ngay từ giây đầu."
+        analysisText: "Video có hook cuốn hút. Tuy nhiên logo nhận diện TechCorp xuất hiện ở giây thứ 11 là quá muộn với video ngắn 15s (người xem lướt qua sau 3-5s). Cần đưa watermark logo TechCorp lên góc trên ngay từ giây đầu."
       },
       feedbackChat: [
-        { id: "c1", sender: "Marketer", name: "Lê Phạm Minh Châu", time: "21/09 17:00", text: "Khôi ơi, video làm rất hay nhưng logo Mắt Bão xuất hiện ở giây thứ 11 là muộn quá, khách lướt qua mất. Bạn dời logo lên góc trên bên trái cố định từ giây 0:01 và thêm âm thanh ting nhẹ khi đạt 0.78s nhé!" },
-        { id: "c2", sender: "Assignee", name: "Hoàng Minh Khôi", time: "21/09 17:40", text: "Dạ em nhận feedback rồi ạ, đang render lại bản cut mới sẽ gửi lại trong tối nay!" }
+        { id: "c1", sender: "Marketer", name: "Sarah", time: "21/09 17:00", text: "Member A ơi, video làm rất hay nhưng logo TechCorp xuất hiện ở giây thứ 11 là muộn quá, khách lướt qua mất. Bạn dời logo lên góc trên bên trái cố định từ giây 0:01 và thêm âm thanh ting nhẹ khi đạt 0.78s nhé!" },
+        { id: "c2", sender: "Assignee", name: "Member A", time: "21/09 17:40", text: "Dạ em nhận feedback rồi ạ, đang render lại bản cut mới sẽ gửi lại trong tối nay!" }
       ]
     },
     {
       id: "tsk-05",
       title: "Video 9:16: Trải nghiệm ký hợp đồng trên Mobile trong 10s",
-      campaign: "Hợp đồng điện tử MBI",
-      brand: "MBI",
+      campaign: "E-Contract Suite",
+      brand: "Beta",
       team: "Video",
       type: "Video",
-      assignee: "Nguyễn Duy Quý",
-      assigneeRole: "Intern",
+      assignee: "Member C",
+      assigneeRole: "Design & Creative",
       stage: "not_started",
       status: "pending",
       statusLabel: "Chưa bắt đầu",
@@ -752,11 +752,11 @@ export const DASHBOARD_DATA = {
       id: "tsk-06",
       title: "Infographic: Tiêu chuẩn bảo mật ISO 27001 cho S-MIME",
       campaign: "Chứng chỉ S-MIME",
-      brand: "MBC",
+      brand: "Alpha",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Duy Quý",
-      assigneeRole: "Intern",
+      assignee: "Member C",
+      assigneeRole: "Design & Creative",
       stage: "not_started",
       status: "pending",
       statusLabel: "Chưa bắt đầu",
@@ -791,11 +791,11 @@ export const DASHBOARD_DATA = {
       id: "tsk-07",
       title: "Ebook Lead Magnet: 10 Tác vụ Copilot AI tự làm cho DN",
       campaign: "Microsoft 365 Copilot",
-      brand: "MBC",
+      brand: "Alpha",
       team: "Content",
       type: "Content",
-      assignee: "Võ Thị Thu Hiền",
-      assigneeRole: "SEO Executive",
+      assignee: "Member D",
+      assigneeRole: "SEO & Content",
       stage: "in_progress",
       status: "in_progress",
       statusLabel: "Đang làm",
@@ -819,18 +819,18 @@ export const DASHBOARD_DATA = {
       },
       qaReport: { tested: false },
       feedbackChat: [
-        { id: "c1", sender: "Assignee", name: "Võ Thị Thu Hiền", time: "21/09 10:00", text: "Em đã hoàn thành 4/6 trang, đang bổ sung case study thực tế của đối tác." }
+        { id: "c1", sender: "Assignee", name: "Member D", time: "21/09 10:00", text: "Em đã hoàn thành 4/6 trang, đang bổ sung case study thực tế của đối tác." }
       ]
     },
     {
       id: "tsk-08",
       title: "Bộ Banner Display: Quảng bá Cloud Hosting chịu tải cao",
-      campaign: "Cloud Hosting MBC",
-      brand: "MBC",
+      campaign: "Managed Cloud Hosting",
+      brand: "Alpha",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Ngọc Khánh",
-      assigneeRole: "Marketing Executive",
+      assignee: "Member B",
+      assigneeRole: "Performance Marketing",
       stage: "in_progress",
       status: "in_progress",
       statusLabel: "Đang làm",
@@ -865,11 +865,11 @@ export const DASHBOARD_DATA = {
       id: "tsk-09",
       title: "Chuỗi 3 Email Drip: Chăm sóc khách hàng vừa mua tên miền",
       campaign: "Email Doanh Nghiệp Cross-sell",
-      brand: "MBC",
+      brand: "Alpha",
       team: "Content",
       type: "Content",
-      assignee: "Võ Thị Thu Hiền",
-      assigneeRole: "SEO Executive",
+      assignee: "Member D",
+      assigneeRole: "SEO & Content",
       stage: "done",
       status: "ready",
       statusLabel: "Hoàn thành",
@@ -878,7 +878,7 @@ export const DASHBOARD_DATA = {
       severity: "success",
       urgency: "success",
       creativeBrief: {
-        objective: "Bán chéo Email Doanh Nghiệp cho khách vừa đăng ký domain Mắt Bão",
+        objective: "Bán chéo Email Doanh Nghiệp cho khách vừa đăng ký domain TechCorp",
         targetPersona: "Khách hàng cá nhân/doanh nghiệp vừa kích hoạt tên miền trong 7 ngày",
         keyMessage: "Đã có tên miền đẹp, nâng tầm uy tín ngay bằng hộp thư theo tên miền",
         deliverables: "Chuỗi 3 email automation (Sau 1 giờ, Sau 3 ngày, Sau 7 ngày)",
@@ -899,18 +899,18 @@ export const DASHBOARD_DATA = {
         analysisText: "Chuỗi email hoàn thiện xuất sắc, tỷ lệ mở test nội bộ đạt 48%."
       },
       feedbackChat: [
-        { id: "c1", sender: "Marketer", name: "Lê Phạm Minh Châu", time: "19/09 15:00", text: "Chuỗi email rất tốt Hiền ơi, chị đã bấm duyệt và tích hợp lên hệ thống CRM rồi ạ!" }
+        { id: "c1", sender: "Marketer", name: "Sarah", time: "19/09 15:00", text: "Chuỗi email rất tốt Member D ơi, chị đã bấm duyệt và tích hợp lên hệ thống CRM rồi ạ!" }
       ]
     },
     {
       id: "tsk-10",
       title: "Bộ Icon & Typography nhận diện cho Chứng chỉ VMC",
       campaign: "Chứng chỉ VMC",
-      brand: "MBC",
+      brand: "Alpha",
       team: "Design",
       type: "Design",
-      assignee: "Nguyễn Duy Quý",
-      assigneeRole: "Intern",
+      assignee: "Member C",
+      assigneeRole: "Design & Creative",
       stage: "done",
       status: "ready",
       statusLabel: "Hoàn thành",
@@ -946,16 +946,16 @@ export const DASHBOARD_DATA = {
         analysisText: "Tài nguyên vector đạt chuẩn thiết kế cao cấp."
       },
       feedbackChat: [
-        { id: "c1", sender: "Marketer", name: "Lê Phạm Minh Châu", time: "18/09 16:30", text: "Bộ icon rất đẹp và sắc nét, chị đã duyệt đưa vào thư viện tài nguyên chung!" }
+        { id: "c1", sender: "Marketer", name: "Sarah", time: "18/09 16:30", text: "Bộ icon rất đẹp và sắc nét, chị đã duyệt đưa vào thư viện tài nguyên chung!" }
       ]
     }
   ],
 
-  // Widget 4: Gemini Learning Library (Kế thừa cho toàn hệ thống Mắt Bão)
+  // Widget 4: Gemini Learning Library (Kế thừa cho toàn hệ thống TechCorp)
   experiments: {
     activeTest: {
       title: "A/B Test Tên Miền: Combo .VN vs Giảm giá đơn lẻ",
-      product: "Tên Miền (MBC)",
+      product: "Domain Registry (Alpha)",
       duration: "Ngày 9/14",
       variantA: { angle: "Giảm 30% phí đăng ký .VN", cvr: "4.1%" },
       variantB: { angle: "Tặng kèm Email Doanh Nghiệp 1 năm", cvr: "6.8%" },
@@ -967,8 +967,8 @@ export const DASHBOARD_DATA = {
       headline: "Khách hàng B2B chuyển đổi cao gấp 2.1x khi mua theo Combo Giải pháp",
       points: [
         "Khách hàng đăng ký Tên Miền có nhu cầu mua kèm Email Doanh nghiệp trong 7 ngày đầu lên tới 42%.",
-        "Doanh nghiệp đăng ký Hoá đơn điện tử MBI có tỷ lệ chuyển đổi sang Chữ ký số & Hợp đồng điện tử đạt 35%.",
-        "Khuyến nghị Tối ưu: Triển khai các gói Combo chéo giữa MBC và MBI trong chu kỳ Tháng 9."
+        "Doanh nghiệp đăng ký E-Invoicing Platform có tỷ lệ chuyển đổi sang Chữ ký số & Hợp đồng điện tử đạt 35%.",
+        "Khuyến nghị Tối ưu: Triển khai các gói Combo chéo giữa Khối Alpha và Khối Beta trong chu kỳ Tháng 9."
       ]
     }
   }
@@ -979,10 +979,10 @@ export const DASHBOARD_DATA = {
 // ==========================================
 export const CURRENT_USER = {
   id: 'mem-chau',
-  name: 'Lê Phạm Minh Châu',
-  role: 'Senior Growth Executive',
+  name: 'Sarah',
+  role: 'Growth Lead',
   department: 'Growth Marketing',
-  avatar: 'LC',
+  avatar: "SA",
   avatarColor: 'bg-emerald-600',
   email: 'chau.le@demo.local'
 };
@@ -991,85 +991,85 @@ export const INITIAL_TEAM_MEMBERS = [
   // 1. Quản Lý / Người Duyệt (Approver)
   { 
     id: 'mem-thinh', 
-    name: 'Lâm Quang Thịnh', 
-    role: 'Acting Marketing Manager', 
+    name: 'Alex', 
+    role: 'Head of Marketing', 
     department: 'Marketing Management', 
     isApprover: true, 
-    avatar: 'LT', 
+    avatar: "AL", 
     avatarColor: 'bg-indigo-700', 
     platform: 'Gửi Direct Message qua Teams', 
-    contact: 'thinh.lam@demo.local', 
+    contact: 'alex@growthloop.demo', 
     autoReminder: false 
   },
 
-  // 2. Senior Growth Executive / Người Lập Kế Hoạch (Owner)
+  // 2. Growth Lead / Người Lập Kế Hoạch (Owner)
   { 
     id: 'mem-chau', 
-    name: 'Lê Phạm Minh Châu', 
-    role: 'Senior Growth Executive', 
+    name: 'Sarah', 
+    role: 'Growth Lead', 
     department: 'Growth Marketing', 
     isApprover: false, 
     isOwner: true, 
-    avatar: 'LC', 
+    avatar: "SA", 
     avatarColor: 'bg-emerald-600', 
     platform: 'Gửi Direct Message qua Teams', 
     contact: 'chau.le@demo.local', 
     autoReminder: true 
   },
 
-  // 3. Social Executive (Bài đăng, copy, mạng xã hội)
+  // 3. Social Media Lead (Bài đăng, copy, mạng xã hội)
   { 
     id: 'mem-khoi', 
-    name: 'Hoàng Minh Khôi', 
-    role: 'Social Executive', 
+    name: 'Member A', 
+    role: 'Social Media Lead', 
     department: 'Social & Content', 
     isApprover: false, 
-    avatar: 'HK', 
+    avatar: "MA", 
     avatarColor: 'bg-purple-600', 
     platform: 'Mention (@) vào Channel của Team', 
-    contact: '@khoi.hoang', 
+    contact: '@member.a', 
     autoReminder: true 
   },
 
-  // 4. Marketing Executive (Setup quảng cáo / vận hành)
+  // 4. Performance Marketing (Setup quảng cáo / vận hành)
   { 
     id: 'mem-khanh', 
-    name: 'Nguyễn Ngọc Khánh', 
-    role: 'Marketing Executive', 
+    name: 'Member B', 
+    role: 'Performance Marketing', 
     department: 'Paid Media & Operations', 
     isApprover: false, 
-    avatar: 'NK', 
+    avatar: "MB", 
     avatarColor: 'bg-blue-600', 
     platform: 'Gửi Direct Message qua Teams', 
-    contact: 'khanh.nguyen@demo.local', 
+    contact: 'member.b@growthloop.demo', 
     autoReminder: true 
   },
 
-  // 5. SEO Executive (Tối ưu nội dung web / tìm kiếm)
+  // 5. SEO & Content (Tối ưu nội dung web / tìm kiếm)
   { 
     id: 'mem-hien', 
-    name: 'Võ Thị Thu Hiền', 
-    role: 'SEO Executive', 
+    name: 'Member D', 
+    role: 'SEO & Content', 
     department: 'Organic & Web SEO', 
     isApprover: false, 
-    avatar: 'VH', 
+    avatar: "MD", 
     avatarColor: 'bg-teal-600', 
     platform: 'Gửi Direct Message qua Teams', 
-    contact: 'hien.vo@demo.local', 
+    contact: 'member.d@growthloop.demo', 
     autoReminder: true 
   },
 
   // 6. Intern (Hỗ trợ / chuẩn bị tài nguyên)
   { 
     id: 'mem-quy', 
-    name: 'Nguyễn Duy Quý', 
-    role: 'Intern', 
+    name: 'Member C', 
+    role: "Design & Creative", 
     department: 'Marketing Operations', 
     isApprover: false, 
-    avatar: 'NQ', 
+    avatar: "MC", 
     avatarColor: 'bg-amber-600', 
     platform: 'Mention (@) vào Channel của Team', 
-    contact: '@quy.nguyen', 
+    contact: '@member.c', 
     autoReminder: true 
   }
 ];
@@ -1082,7 +1082,7 @@ export const WEEKLY_REPORT_DATA = {
   weekTitle: "Báo Cáo Growth Marketing - Tuần 38",
   period: "15/09/2026 - 21/09/2026",
   generatedTime: "Chiều Thứ Sáu, 16:30",
-  defaultRecipients: "Lâm Quang Thịnh",
+  defaultRecipients: "Alex",
   availableWeeks: [
     {
       id: "w-37",
@@ -1096,8 +1096,8 @@ export const WEEKLY_REPORT_DATA = {
       items: [
         {
           id: "conv-mbi",
-          brand: "MBI",
-          brandName: "Khối MBI (Matbao-invoice)",
+          brand: "Beta",
+          brandName: "Khối Beta (Enterprise Solutions)",
           icon: "🧾",
           metricLabel: "Đơn hàng",
           unit: "Đơn",
@@ -1114,7 +1114,7 @@ export const WEEKLY_REPORT_DATA = {
         {
           id: "conv-mbn",
           brand: "MBN",
-          brandName: "Khối MBN (Matbao Network)",
+          brandName: "Khối Alpha (SaaS & Cloud)",
           icon: "🏢",
           metricLabel: "Doanh số",
           unit: "VNĐ",
@@ -1152,8 +1152,8 @@ export const WEEKLY_REPORT_DATA = {
       items: [
         {
           id: "conv-mbi",
-          brand: "MBI",
-          brandName: "Khối MBI (Matbao-invoice)",
+          brand: "Beta",
+          brandName: "Khối Beta (Enterprise Solutions)",
           icon: "🧾",
           metricLabel: "Đơn hàng",
           unit: "Đơn",
@@ -1170,7 +1170,7 @@ export const WEEKLY_REPORT_DATA = {
         {
           id: "conv-mbn",
           brand: "MBN",
-          brandName: "Khối MBN (Matbao Network)",
+          brandName: "Khối Alpha (SaaS & Cloud)",
           icon: "🏢",
           metricLabel: "Doanh số",
           unit: "VNĐ",
@@ -1198,8 +1198,8 @@ export const WEEKLY_REPORT_DATA = {
       items: [
         {
           id: "conv-mbi",
-          brand: "MBI",
-          brandName: "Khối MBI (Matbao-invoice)",
+          brand: "Beta",
+          brandName: "Khối Beta (Enterprise Solutions)",
           icon: "🧾",
           metricLabel: "Đơn hàng",
           unit: "Đơn",
@@ -1216,7 +1216,7 @@ export const WEEKLY_REPORT_DATA = {
         {
           id: "conv-mbn",
           brand: "MBN",
-          brandName: "Khối MBN (Matbao Network)",
+          brandName: "Khối Alpha (SaaS & Cloud)",
           icon: "🏢",
           metricLabel: "Doanh số",
           unit: "VNĐ",
@@ -1233,14 +1233,14 @@ export const WEEKLY_REPORT_DATA = {
       ]
     }
   ],
-  executiveSummary: "Tuần qua, hiệu suất mảng MBI (Matbao-invoice) tăng trưởng mạnh với CPL giảm 15% và đạt đỉnh 32 SQLs. Tuy nhiên, mảng Tên Miền và Cloud Hosting đang thiếu hụt chiến dịch mới, đồng thời có 2 banner của Nguyễn Duy Quý đang trễ hạn duyệt có nguy cơ ảnh hưởng phễu đầu vào tuần tới.",
+  executiveSummary: "Tuần qua, hiệu suất mảng Khối Beta (Khối Beta (Enterprise Solutions)) tăng trưởng mạnh với CPL giảm 15% và đạt đỉnh 32 SQLs. Tuy nhiên, mảng Tên Miền và Cloud Hosting đang thiếu hụt chiến dịch mới, đồng thời có 2 banner của Member C đang trễ hạn duyệt có nguy cơ ảnh hưởng phễu đầu vào tuần tới.",
   conversionTracking: {
-    sectionTitle: "THEO DÕI TỐI ƯU CHUYỂN ĐỔI (MBN & MBI)",
+    sectionTitle: "THEO DÕI TỐI ƯU CHUYỂN ĐỔI (Alpha & Beta)",
     items: [
       {
         id: "conv-mbi",
-        brand: "MBI",
-        brandName: "Khối MBI (Matbao-invoice)",
+        brand: "Beta",
+        brandName: "Khối Beta (Enterprise Solutions)",
         icon: "🧾",
         metricLabel: "Đơn hàng",
         unit: "Đơn",
@@ -1266,7 +1266,7 @@ export const WEEKLY_REPORT_DATA = {
       {
         id: "conv-mbn",
         brand: "MBN",
-        brandName: "Khối MBN (Matbao Network)",
+        brandName: "Khối Alpha (SaaS & Cloud)",
         icon: "🏢",
         metricLabel: "Doanh số",
         unit: "VNĐ",
@@ -1291,9 +1291,9 @@ export const WEEKLY_REPORT_DATA = {
   theGood: [
     {
       id: "good-1",
-      productName: "Hoá đơn điện tử (MBI)",
+      productName: "E-Invoicing Platform (Beta)",
       campaignName: "Tặng 500 số hóa đơn cho DN mới",
-      brand: "MBI",
+      brand: "Beta",
       badge: "Vượt 20% Target",
       spend: "$1,224",
       leads: 340,
@@ -1304,9 +1304,9 @@ export const WEEKLY_REPORT_DATA = {
     },
     {
       id: "good-2",
-      productName: "Tên Miền .VN Combo Email (MBC)",
+      productName: "Domain & Email Combo (Alpha)",
       campaignName: "Đăng ký .VN tặng Email Doanh nghiệp",
-      brand: "MBC",
+      brand: "Alpha",
       badge: "Top Conversion",
       spend: "$1,512",
       leads: 540,
@@ -1317,9 +1317,9 @@ export const WEEKLY_REPORT_DATA = {
     },
     {
       id: "good-3",
-      productName: "Hợp đồng điện tử (MBI)",
+      productName: "E-Contract Suite (Beta)",
       campaignName: "Ký kết số trên Mobile xác thực CeCA",
-      brand: "MBI",
+      brand: "Beta",
       badge: "High Intent",
       spend: "$840",
       leads: 175,
@@ -1349,17 +1349,17 @@ export const WEEKLY_REPORT_DATA = {
     {
       id: "risk-3",
       type: "Tiến độ công việc (Task Risks)",
-      productName: "Tên Miền .VN & Hóa Đơn MBI",
+      productName: "Cross-Sell: Domain & E-Invoice",
       severity: "warning",
       metric: "2 banner trễ hạn",
-      detail: "Hiện có 2 banner thiết kế của Nguyễn Duy Quý đang trễ hạn duyệt ở cột In Review (trễ 1-2 ngày), có nguy cơ làm hoãn lịch on-air tuần tới."
+      detail: "Hiện có 2 banner thiết kế của Member C đang trễ hạn duyệt ở cột In Review (trễ 1-2 ngày), có nguy cơ làm hoãn lịch on-air tuần tới."
     }
   ],
   actionPlan: [
     { id: "act-1", text: "Tạm dừng Adset Broad Microsoft 365 Copilot; kích hoạt 3 Concept A/B Test Case Study AI tự động hóa.", checked: false },
-    { id: "act-2", text: "Họp nhanh với Nguyễn Duy Quý lúc 9:00 Thứ Hai để chốt duyệt dứt điểm 2 banner đang trễ hạn ở cột In Review.", checked: false },
+    { id: "act-2", text: "Họp nhanh với Member C lúc 9:00 Thứ Hai để chốt duyệt dứt điểm 2 banner đang trễ hạn ở cột In Review.", checked: false },
     { id: "act-3", text: "Khởi tạo chiến dịch Top-of-Funnel Cloud Hosting cho tệp doanh nghiệp E-commerce và sàn bán hàng.", checked: false },
-    { id: "act-4", text: "Scale tăng thêm 25% ngân sách cho chiến dịch Tặng 500 số Hóa đơn điện tử MBI đang đạt ROAS 5.4x.", checked: false }
+    { id: "act-4", text: "Scale tăng thêm 25% ngân sách cho chiến dịch Tặng 500 số E-Invoicing Platform đang đạt ROAS 5.4x.", checked: false }
   ]
 };
 

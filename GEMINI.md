@@ -24,7 +24,8 @@
   - `redeploy_project`, `rollback_project`: Cập nhật mã nguồn và quản lý phiên bản
   - `get_build_logs`, `get_runtime_logs`, `diagnose_deploy`: Giám sát và chẩn đoán sự cố
 - **Deployed Production Website**:
-  - **Live URL**: `https://growth-loop.cmc-1.vibenode.matbao.ai`
+  - **Live URL**: `https://growthloop.cmc-1.vibenode.matbao.ai` (Public Demo)
+  - **Legacy URL**: `https://growth-loop.cmc-1.vibenode.matbao.ai`
   - **Status**: `online`
   - **Specifications**: 1 vCPU, 512MB RAM, Nginx Static Single-Bundle SPA
 

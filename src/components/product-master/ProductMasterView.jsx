@@ -8,18 +8,15 @@ export default function ProductMasterView({
   onOpenGuidedPlanning, 
   onTriggerAction 
 }) {
-  const [selectedBrand, setSelectedBrand] = useState('all'); // 'all' | 'MBC' | 'MBI'
+  const [selectedBrand, setSelectedBrand] = useState('all'); // 'all' | 'Alpha' | 'Beta'
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState('all'); // 'all' | 'active' | 'needs_action' | 'missing'
-
-  // Tính toán số lượng cảnh báo đỏ cho từng Brand để hiển thị Gemini Notification Dot
-  const mbcAlertCount = products.filter(p => p.brand === 'MBC' && p.aiDiagnosis?.urgency === 'danger').length;
-  const mbiAlertCount = products.filter(p => p.brand === 'MBI' && p.aiDiagnosis?.urgency === 'danger').length;
 
   // Lọc sản phẩm theo Thương hiệu (Brand), Trạng thái và Tìm kiếm
   const filterProduct = (prod) => {
     // Brand filter
-    if (selectedBrand !== 'all' && prod.brand !== selectedBrand) return false;
+    if (selectedBrand === 'Alpha' && prod.brand !== 'Alpha' && prod.brand !== 'MBC') return false;
+    if (selectedBrand === 'Beta' && prod.brand !== 'Beta' && prod.brand !== 'MBI') return false;
 
     // Status filter
     if (filterType === 'active' && (!prod.metaSync || prod.metaSync.activeCampaignsCount === 0)) return false;
@@ -41,10 +38,13 @@ export default function ProductMasterView({
     return true;
   };
 
-  const mbcProducts = products.filter(p => p.brand === 'MBC').filter(filterProduct);
-  const mbiProducts = products.filter(p => p.brand === 'MBI').filter(filterProduct);
+  const alphaProducts = products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC').filter(filterProduct);
+  const betaProducts = products.filter(p => p.brand === 'Beta' || p.brand === 'MBI').filter(filterProduct);
 
-  const totalFilteredCount = mbcProducts.length + mbiProducts.length;
+  const totalFilteredCount = alphaProducts.length + betaProducts.length;
+
+  const alphaAlertCount = products.filter(p => (p.brand === 'Alpha' || p.brand === 'MBC') && p.aiDiagnosis?.urgency === 'danger').length;
+  const betaAlertCount = products.filter(p => (p.brand === 'Beta' || p.brand === 'MBI') && p.aiDiagnosis?.urgency === 'danger').length;
 
   return (
     <div className="space-y-6">
@@ -63,7 +63,7 @@ export default function ProductMasterView({
               </span>
             </h2>
             <p className="text-xs text-slate-500 font-normal">
-              Quản lý danh mục 2 khối kinh doanh: MBC (Hosting/Domain/Cloud) & MBI (Hóa đơn/Ký số)
+              Quản lý danh mục 2 khối kinh doanh: Khối Alpha (SaaS & Cloud) & Khối Beta (Enterprise Solutions)
             </p>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function ProductMasterView({
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" strokeWidth={2} />
             <input
               type="text"
-              placeholder="Tìm kiếm sản phẩm, tên miền .VN, hóa đơn..."
+              placeholder="Tìm kiếm sản phẩm, giải pháp..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-3 py-2 text-xs bg-slate-50/70 rounded-xl focus:outline-none focus:bg-white text-slate-800 placeholder-slate-400 transition-all border border-slate-200 focus:border-indigo-500 font-normal"
@@ -120,32 +120,32 @@ export default function ProductMasterView({
               Tất cả ({products.length})
             </button>
 
-            {/* Nút 2: 🏢 MBC (Matbao-corp) */}
+            {/* Nút 2: 🚀 Khối Alpha (SaaS & Cloud) */}
             <button
-              onClick={() => setSelectedBrand('MBC')}
+              onClick={() => setSelectedBrand('Alpha')}
               className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                selectedBrand === 'MBC'
+                selectedBrand === 'Alpha' || selectedBrand === 'MBC'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span>🏢 MBC</span>
-              {mbcAlertCount > 0 && (
+              <span>🚀 Khối Alpha</span>
+              {alphaAlertCount > 0 && (
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
               )}
             </button>
 
-            {/* Nút 3: 🧾 MBI (Matbao-invoice) */}
+            {/* Nút 3: ⚡ Khối Beta (Enterprise Solutions) */}
             <button
-              onClick={() => setSelectedBrand('MBI')}
+              onClick={() => setSelectedBrand('Beta')}
               className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                selectedBrand === 'MBI'
+                selectedBrand === 'Beta' || selectedBrand === 'MBI'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span>🧾 MBI</span>
-              {mbiAlertCount > 0 && (
+              <span>⚡ Khối Beta</span>
+              {betaAlertCount > 0 && (
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
               )}
             </button>
@@ -189,32 +189,32 @@ export default function ProductMasterView({
       {/* DANH SÁCH SẢN PHẨM PHÂN NHÓM (REAL-TIME FILTERING) */}
       <div className="space-y-8">
         
-        {/* SECTION 1: 🏢 MBC (Matbao-corp) - Ẩn hoàn toàn khi chọn tab MBI */}
-        {(selectedBrand === 'all' || selectedBrand === 'MBC') && (
+        {/* SECTION 1: 🚀 Khối Alpha (SaaS & Cloud) */}
+        {(selectedBrand === 'all' || selectedBrand === 'Alpha' || selectedBrand === 'MBC') && (
           <div className="space-y-4 animate-in fade-in duration-200">
             
-            {/* Header phân nhóm MBC */}
+            {/* Header phân nhóm Alpha */}
             <div className="flex items-center justify-between px-2 pb-1 border-b-2 border-blue-200/80">
               <div className="flex items-center space-x-2.5">
                 <div className="w-7 h-7 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                  MBC
+                  Alpha
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm tracking-tight flex items-center">
-                    <span>🏢 MBC (Matbao-corp)</span>
-                    <span className="ml-2 text-slate-400 font-normal text-xs">— Hạ tầng Hosting, Tên Miền & Cloud Workplace</span>
+                    <span>🚀 Khối Alpha (SaaS & Cloud)</span>
+                    <span className="ml-2 text-slate-400 font-normal text-xs">— Hạ tầng Cloud Server, Tên Miền & Workspace</span>
                   </h3>
                 </div>
               </div>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-800">
-                {mbcProducts.length} Sản phẩm
+                {alphaProducts.length} Sản phẩm
               </span>
             </div>
 
-            {/* Danh sách thẻ sản phẩm MBC */}
-            {mbcProducts.length > 0 ? (
+            {/* Danh sách thẻ sản phẩm Alpha */}
+            {alphaProducts.length > 0 ? (
               <div className="space-y-4">
-                {mbcProducts.map(product => (
+                {alphaProducts.map(product => (
                   <ProductCard3Zone
                     key={product.id}
                     product={product}
@@ -224,39 +224,39 @@ export default function ProductMasterView({
               </div>
             ) : (
               <div className="p-6 bg-white rounded-3xl text-center text-xs text-slate-400 border border-dashed border-slate-200">
-                Không tìm thấy sản phẩm MBC nào phù hợp với bộ lọc hiện tại.
+                Không tìm thấy sản phẩm Khối Alpha nào phù hợp với bộ lọc hiện tại.
               </div>
             )}
 
           </div>
         )}
 
-        {/* SECTION 2: 🧾 MBI (Matbao-invoice) - Ẩn hoàn toàn khi chọn tab MBC */}
-        {(selectedBrand === 'all' || selectedBrand === 'MBI') && (
+        {/* SECTION 2: ⚡ Khối Beta (Enterprise Solutions) */}
+        {(selectedBrand === 'all' || selectedBrand === 'Beta' || selectedBrand === 'MBI') && (
           <div className="space-y-4 pt-2 animate-in fade-in duration-200">
             
-            {/* Header phân nhóm MBI */}
+            {/* Header phân nhóm Beta */}
             <div className="flex items-center justify-between px-2 pb-1 border-b-2 border-emerald-200/80">
               <div className="flex items-center space-x-2.5">
                 <div className="w-7 h-7 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                  MBI
+                  Beta
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-sm tracking-tight flex items-center">
-                    <span>🧾 MBI (Matbao-invoice)</span>
-                    <span className="ml-2 text-slate-400 font-normal text-xs">— Hệ sinh thái Hóa Đơn & Chứng Từ Thuế Số</span>
+                    <span>⚡ Khối Beta (Enterprise Solutions)</span>
+                    <span className="ml-2 text-slate-400 font-normal text-xs">— Giải pháp Hóa Đơn Điện Tử, Hợp Đồng Số & Chữ Ký Số</span>
                   </h3>
                 </div>
               </div>
               <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800">
-                {mbiProducts.length} Sản phẩm
+                {betaProducts.length} Sản phẩm
               </span>
             </div>
 
-            {/* Danh sách thẻ sản phẩm MBI */}
-            {mbiProducts.length > 0 ? (
+            {/* Danh sách thẻ sản phẩm Beta */}
+            {betaProducts.length > 0 ? (
               <div className="space-y-4">
-                {mbiProducts.map(product => (
+                {betaProducts.map(product => (
                   <ProductCard3Zone
                     key={product.id}
                     product={product}
@@ -266,7 +266,7 @@ export default function ProductMasterView({
               </div>
             ) : (
               <div className="p-6 bg-white rounded-3xl text-center text-xs text-slate-400 border border-dashed border-slate-200">
-                Không tìm thấy sản phẩm MBI nào phù hợp với bộ lọc hiện tại.
+                Không tìm thấy sản phẩm Khối Beta nào phù hợp với bộ lọc hiện tại.
               </div>
             )}
 

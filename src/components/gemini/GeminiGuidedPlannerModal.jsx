@@ -25,7 +25,7 @@ export default function GeminiGuidedPlannerModal({
   currentUser = CURRENT_USER,
   onApproveCampaign 
 }) {
-  const defaultProduct = products.find(p => p.id === 'mbc-vibe-host') || products[0];
+  const defaultProduct = products.find(p => p.id === 'prod-cloud-server' || p.id === 'mbc-vibe-host') || products[0];
   const [selectedProduct, setSelectedProduct] = useState(defaultProduct || null);
   
   // Interactive Mini Form State
@@ -37,13 +37,13 @@ export default function GeminiGuidedPlannerModal({
 
   // Dynamic Multi-user Workspace Assignment State
   const [selectedOwner, setSelectedOwner] = useState(currentUser || CURRENT_USER);
-  const defaultApprover = teamMembers.find(m => m.id === 'mem-thinh') || teamMembers.find(m => m.isApprover) || { name: 'Lâm Quang Thịnh', role: 'Acting Marketing Manager' };
+  const defaultApprover = teamMembers.find(m => m.id === 'mem-alex' || m.id === 'mem-thinh') || teamMembers.find(m => m.isApprover) || { name: 'Alex', role: 'Head of Marketing' };
   const [selectedApprover, setSelectedApprover] = useState(defaultApprover);
 
   // Sync default product when products list loads
   useEffect(() => {
     if (products.length > 0 && !selectedProduct) {
-      const p = products.find(item => item.id === 'mbc-vibe-host') || products[0];
+      const p = products.find(item => item.id === 'prod-cloud-server' || item.id === 'mbc-vibe-host') || products[0];
       setSelectedProduct(p);
     }
   }, [products, selectedProduct]);
@@ -71,21 +71,22 @@ export default function GeminiGuidedPlannerModal({
 
   const handleSelectProduct = (prod) => {
     setSelectedProduct(prod);
-    if (prod.id === 'mbc-vibe-host') {
+    if (prod.id === 'mbc-vibe-host' || prod.name?.includes('Cloud Server')) {
       setKeyMessage('Tăng tốc Website NVMe - Chống nghẽn cổ chai mùa cao điểm');
-    } else if (prod.brand === 'MBI') {
-      setKeyMessage(`Hóa đơn điện tử ${prod.name} - Tự động hóa chuẩn quy định Thuế, tiết kiệm 70% thời gian`);
+    } else if (prod.brand === 'Beta' || prod.brand === 'MBI') {
+      setKeyMessage(`Giải pháp số ${prod.name} - Tự động hóa chuẩn quy định doanh nghiệp, tiết kiệm 70% thời gian`);
     } else {
       setKeyMessage(`Hạ tầng ${prod.name} - Tối ưu hiệu năng, bảo mật và hỗ trợ kỹ thuật 24/7`);
     }
   };
 
   // Dynamic campaign outputs based on selected product and target KPI
-  const camp1Title = selectedProduct?.id === 'mbc-vibe-host'
+  const isCloudServer = selectedProduct?.id === 'mbc-vibe-host' || selectedProduct?.name?.includes('Cloud Server');
+  const camp1Title = isCloudServer
     ? 'Giới thiệu hạ tầng NVMe'
     : `Phủ tệp & Định vị thương hiệu: ${selectedProduct?.name || 'Sản phẩm'}`;
 
-  const camp2Title = selectedProduct?.id === 'mbc-vibe-host'
+  const camp2Title = isCloudServer
     ? 'Promo tặng thêm tháng sử dụng'
     : `Retargeting & Promo ưu đãi: ${selectedProduct?.name || 'Sản phẩm'}`;
 
@@ -106,17 +107,17 @@ export default function GeminiGuidedPlannerModal({
     const camp2Kpi = targetKpi - camp1Kpi;
 
     // Auto-generate 2 execution tasks for team (Planning -> Assigning)
-    // Initially locked until Master Plan is approved by Lâm Quang Thịnh
+    // Initially locked until Master Plan is approved by Alex
     const generatedTasks = [
       {
         id: task1Id,
         title: `[Camp 1] Viết Ad Copy & Bài Social: ${camp1Title}`,
         campaign: `Kế hoạch ${selectedProduct?.name || 'Mới'}`,
-        brand: selectedProduct?.brand || 'MBC',
+        brand: selectedProduct?.brand || 'Alpha',
         team: 'Content',
         type: 'Content',
-        assignee: 'Hoàng Minh Khôi',
-        assigneeRole: 'Social Executive',
+        assignee: 'Member A',
+        assigneeRole: 'Social Media Lead',
         stage: 'in_progress',
         status: 'pending',
         statusLabel: 'Chờ mở khóa',
@@ -124,7 +125,7 @@ export default function GeminiGuidedPlannerModal({
         isOverdue: false,
         masterPlanId: planId,
         isLocked: true,
-        lockMessage: `Chờ ${selectedApprover?.name || 'Lâm Quang Thịnh'} duyệt Master Plan để mở khóa`,
+        lockMessage: `Chờ ${selectedApprover?.name || 'Alex'} duyệt Master Plan để mở khóa`,
         severity: 'normal',
         urgency: 'normal',
         creativeBrief: {
@@ -147,11 +148,11 @@ export default function GeminiGuidedPlannerModal({
         id: task2Id,
         title: `[Camp 2] Thiết kế Bộ Banner KV Promo: ${camp2Title}`,
         campaign: `Kế hoạch ${selectedProduct?.name || 'Mới'}`,
-        brand: selectedProduct?.brand || 'MBC',
+        brand: selectedProduct?.brand || 'Alpha',
         team: 'Design',
         type: 'Design',
-        assignee: 'Nguyễn Duy Quý',
-        assigneeRole: 'Intern',
+        assignee: 'Member C',
+        assigneeRole: 'Design & Creative',
         stage: 'not_started',
         status: 'pending',
         statusLabel: 'Chờ mở khóa',
@@ -159,7 +160,7 @@ export default function GeminiGuidedPlannerModal({
         isOverdue: false,
         masterPlanId: planId,
         isLocked: true,
-        lockMessage: `Chờ ${selectedApprover?.name || 'Lâm Quang Thịnh'} duyệt Master Plan để mở khóa`,
+        lockMessage: `Chờ ${selectedApprover?.name || 'Alex'} duyệt Master Plan để mở khóa`,
         severity: 'normal',
         urgency: 'normal',
         creativeBrief: {
@@ -184,14 +185,14 @@ export default function GeminiGuidedPlannerModal({
       id: planId,
       productId: selectedProduct?.id || 'prod-custom',
       productName: selectedProduct?.name || 'Sản phẩm mới',
-      brand: selectedProduct?.brand || 'MBC',
+      brand: selectedProduct?.brand || 'Alpha',
       title: `[Master Plan] Kế hoạch ${selectedProduct?.name || ''}: ${keyMessage.slice(0, 45)}`,
-      creator: selectedOwner?.name || 'Lê Phạm Minh Châu',
-      creatorRole: selectedOwner?.role || 'Senior Growth Executive',
-      reviewer: selectedApprover?.name || 'Lâm Quang Thịnh',
-      reviewerRole: selectedApprover?.role || 'Acting Marketing Manager',
-      approver: selectedApprover?.name || 'Lâm Quang Thịnh',
-      approverRole: selectedApprover?.role || 'Acting Marketing Manager',
+      creator: selectedOwner?.name || 'Sarah',
+      creatorRole: selectedOwner?.role || 'Growth Lead',
+      reviewer: selectedApprover?.name || 'Alex',
+      reviewerRole: selectedApprover?.role || 'Head of Marketing',
+      approver: selectedApprover?.name || 'Alex',
+      approverRole: selectedApprover?.role || 'Head of Marketing',
       timeline: `${formatDateDisplay(startDate)} - ${formatDateDisplay(endDate)}`,
       timelineDays: totalDays,
       targetKpi: `${targetKpi} SQLs`,

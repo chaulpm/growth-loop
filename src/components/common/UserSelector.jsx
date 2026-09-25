@@ -57,7 +57,7 @@ export default function UserSelector({
       if (match) return match;
       return { 
         name: user, 
-        role: /thịnh|manager|giám đốc/i.test(user) ? 'Acting Marketing Manager' : 'Marketing' 
+        role: /alex|manager|giám đốc/i.test(user) ? 'Head of Marketing' : 'Marketing' 
       };
     }
     return user;

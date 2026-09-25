@@ -35,17 +35,17 @@ export default function MasterPlanApprovalSlideOver({
   const [isProcessing, setIsProcessing] = useState(false);
 
   // Dynamic Creator & Reviewer State
-  const [currentCreator, setCurrentCreator] = useState(plan?.creator || 'Lê Phạm Minh Châu');
-  const [currentCreatorRole, setCurrentCreatorRole] = useState(plan?.creatorRole || 'Senior Growth Executive');
-  const [currentReviewer, setCurrentReviewer] = useState(plan?.reviewer || plan?.approver || 'Lâm Quang Thịnh');
-  const [currentReviewerRole, setCurrentReviewerRole] = useState(plan?.reviewerRole || plan?.approverRole || 'Acting Marketing Manager');
+  const [currentCreator, setCurrentCreator] = useState(plan?.creator || 'Sarah');
+  const [currentCreatorRole, setCurrentCreatorRole] = useState(plan?.creatorRole || 'Growth Lead');
+  const [currentReviewer, setCurrentReviewer] = useState(plan?.reviewer || plan?.approver || 'Alex');
+  const [currentReviewerRole, setCurrentReviewerRole] = useState(plan?.reviewerRole || plan?.approverRole || 'Head of Marketing');
 
   useEffect(() => {
     if (plan) {
-      setCurrentCreator(plan.creator || 'Lê Phạm Minh Châu');
-      setCurrentCreatorRole(plan.creatorRole || 'Senior Growth Executive');
-      setCurrentReviewer(plan.reviewer || plan.approver || 'Lâm Quang Thịnh');
-      setCurrentReviewerRole(plan.reviewerRole || plan.approverRole || 'Acting Marketing Manager');
+      setCurrentCreator(plan.creator || 'Sarah');
+      setCurrentCreatorRole(plan.creatorRole || 'Growth Lead');
+      setCurrentReviewer(plan.reviewer || plan.approver || 'Alex');
+      setCurrentReviewerRole(plan.reviewerRole || plan.approverRole || 'Head of Marketing');
     }
   }, [plan]);
 

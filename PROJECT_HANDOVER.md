@@ -25,28 +25,28 @@
 Dữ liệu mẫu thực tế của dự án được lưu trữ tại file: [`src/data/mockData.js`](file:///C:/Growth-loop/src/data/mockData.js).
 
 ### A. Danh mục 12 Sản phẩm Thực tế (2 Khối Kinh doanh):
-1. **🏢 Khối MBC (Matbao-corp) - 8 Sản phẩm**:
-   - `Vibe Host`: High-Performance Hosting (2 active campaigns).
-   - `Tên Miền`: Domain Registrar & DNS (Thẻ đặc biệt với 9 đuôi chip: `.VN/.COM`, `.CLOUD`, `.IO`, `.AI`, `.XYZ`, `.ASIA`, `.ICU`, sắc đẹp, quốc tế - 4 active campaigns).
-   - `Google Workspace`: Cloud Productivity (2 active campaigns).
-   - `Microsoft 365 Copilot`: Enterprise AI & Workplace (2 active campaigns - Lưu ý: Tên sản phẩm thương mại của Microsoft giữ nguyên).
-   - `Email doanh nghiệp`: Secure Business Email (1 active campaign).
-   - `Cloud Hosting`: Cloud Infrastructure (0 campaign - **Thiếu Camp**).
-   - `Chứng chỉ VMC`: Email Brand Identity & BIMI (0 campaign - **Thiếu Camp**).
-   - `Chứng chỉ S-MIME`: Email Encryption & Digital Sign (0 campaign - **Thiếu Camp**).
-2. **🧾 Khối MBI (Matbao-invoice) - 4 Sản phẩm**:
-   - `Hoá đơn điện tử`: E-Invoice Nghị định 123 (3 active campaigns).
-   - `Hợp đồng điện tử`: E-Contract & Digital Signature (2 active campaigns).
-   - `Hoá đơn đầu vào`: Automated Invoice Processing (1 campaign - **Cần đổi KV / Warning**).
-   - `Chữ ký số`: Token HSM & Cloud CA (0 campaign - **Thiếu Camp**).
+1. **🏢 Khối Alpha (SaaS & Cloud) - 8 Sản phẩm**:
+   - `Cloud Server Pro`: High-Performance Hosting (2 active campaigns).
+   - `Domain Registry`: Domain Registrar & DNS (Thẻ đặc biệt với 9 đuôi chip: `.VN/.COM`, `.CLOUD`, `.IO`, `.AI`, `.XYZ`, `.ASIA`, `.ICU`, sắc đẹp, quốc tế - 4 active campaigns).
+   - `Enterprise Workspace`: Cloud Productivity (2 active campaigns).
+   - `AI Productivity Suite`: Enterprise AI & Workplace (2 active campaigns - Lưu ý: Tên sản phẩm thương mại của Microsoft giữ nguyên).
+   - `Business Email Pro`: Secure Business Email (1 active campaign).
+   - `Managed Cloud Hosting`: Cloud Infrastructure (0 campaign - **Thiếu Camp**).
+   - `Brand Security VMC`: Email Brand Identity & BIMI (0 campaign - **Thiếu Camp**).
+   - `Enterprise S-MIME`: Email Encryption & Digital Sign (0 campaign - **Thiếu Camp**).
+2. **🧾 Khối Beta (Enterprise Solutions) - 4 Sản phẩm**:
+   - `E-Invoicing Platform`: E-Invoice Nghị định 123 (3 active campaigns).
+   - `E-Contract Suite`: E-Contract & Digital Signature (2 active campaigns).
+   - `Smart AP Automation`: Automated Invoice Processing (1 campaign - **Cần đổi KV / Warning**).
+   - `Digital Signature CA`: Token HSM & Cloud CA (0 campaign - **Thiếu Camp**).
 
 ### B. Danh sách Nhân sự Động (Multi-user Team Roster):
-- **Lâm Quang Thịnh**: Acting Marketing Manager (Role: Quản lý / Approver).
-- **Lê Phạm Minh Châu**: Senior Growth Executive (Role: Thực thi / Creator).
-- **Hoàng Minh Khôi**: Social Executive.
-- **Nguyễn Ngọc Khánh**: Marketing Executive.
-- **Nguyễn Duy Quý**: Intern.
-- **Võ Thị Thu Hiền**: SEO Executive.
+- **Alex**: Head of Marketing (Role: Quản lý / Approver).
+- **Sarah**: Growth Lead (Role: Thực thi / Creator).
+- **Member A**: Social Executive.
+- **Member B**: Marketing Executive.
+- **Member C**: Intern.
+- **Member D**: SEO Executive.
 
 ---
 
@@ -57,14 +57,14 @@ Dữ liệu mẫu thực tế của dự án được lưu trữ tại file: [`s
 - **Badge Định danh**: `✨ Data-Driven OS`.
 - **Live Sync Indicator**: Chấm xanh nhấp nháy hiển thị trạng thái kết nối Meta Ads API.
 - **Nút Báo Cáo Tuần**: Kích hoạt trực tiếp modal Báo cáo tuần từ Header.
-- **Multi-user Switcher (`UserSelector.jsx`)**: Cho phép chuyển đổi linh hoạt tài khoản người dùng đang đăng nhập để mô phỏng phân quyền giữa Manager (Lâm Quang Thịnh) và Growth Executive (Lê Phạm Minh Châu).
+- **Multi-user Switcher (`UserSelector.jsx`)**: Cho phép chuyển đổi linh hoạt tài khoản người dùng đang đăng nhập để mô phỏng phân quyền giữa Manager (Alex) và Growth Executive (Sarah).
 
 ### 3.2. Màn hình 1: Control Center (Dashboard Trung Tâm)
 - **Lưới 2 Cột Cân Bằng Thị Giác (Balanced 2-Column Grid)**:
   - **Cột Trái - `CampaignCoverageWidget.jsx`**:
     - Tỷ lệ phủ sóng tổng thể danh mục (hiện tại: 67% - 8/12 sản phẩm).
     - 3 thẻ đếm trạng thái: `Active (15)`, `Thiếu Camp (4)`, `Cần đổi KV (1)`.
-    - Phân bổ theo 2 khối: 🏢 MBC (5/8 - 63%) và 🧾 MBI (3/4 - 75%), hiển thị danh sách tag từng sản phẩm kèm chấm xanh (Active) hoặc đỏ (Thiếu).
+    - Phân bổ theo 2 khối: 🏢 Alpha (5/8 - 63%) và 🧾 Beta (3/4 - 75%), hiển thị danh sách tag từng sản phẩm kèm chấm xanh (Active) hoặc đỏ (Thiếu).
     - Khối *Phân tích Thiếu hụt Chiến dịch*: Nhận diện các sản phẩm khuyết, kèm nút bấm **`+ Tạo Plan Nhanh`** mở trực tiếp luồng lập kế hoạch.
     - Chiều cao thẻ giãn nở tự nhiên (`h-full flex flex-col justify-between`) khớp pixel với cột bên phải.
   - **Cột Phải - 2 Thẻ Xếp Chồng**:
@@ -72,8 +72,8 @@ Dữ liệu mẫu thực tế của dự án được lưu trữ tại file: [`s
     - **`GrowthExperimentsWidget.jsx`**: *Thư viện Growth (Growth Library)*; kết quả A/B Test đang chạy trực tiếp (Variant A vs Variant B Winner); đúc kết tự động chu kỳ trước.
 - **Hàng Dưới - `TaskQualityControlWidget.jsx`**:
   - Quản lý quy trình kiểm soát chất lượng & Phê duyệt Master Campaign Plan.
-  - **Thẻ Epic Master Plan nằm ngang**: Hiển thị Kế hoạch của Vibe Host với 2 chiến dịch con (`Camp 1 Teasing 60% KPI`, `Camp 2 Retargeting 40% KPI`), timeline, ngân sách.
-  - **Cơ chế Khóa Task Con Phụ Thuộc (Dependency Locking)**: 2 task con trên Kanban bị khóa cứng với nhãn *"Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa"*.
+  - **Thẻ Epic Master Plan nằm ngang**: Hiển thị Kế hoạch của Cloud Server Pro với 2 chiến dịch con (`Camp 1 Teasing 60% KPI`, `Camp 2 Retargeting 40% KPI`), timeline, ngân sách.
+  - **Cơ chế Khóa Task Con Phụ Thuộc (Dependency Locking)**: 2 task con trên Kanban bị khóa cứng với nhãn *"Chờ Alex duyệt Master Plan để mở khóa"*.
   - **Nút Phê duyệt / Từ chối Kế hoạch**:
     - Khi Manager bấm *"Duyệt Kế Hoạch"*: Kế hoạch chuyển sang trạng thái *Đã duyệt*, tự động mở khóa (unlock) toàn bộ các task con để team bắt tay thực thi.
     - Khi bấm *"Từ chối / Yêu cầu sửa"*: Giữ nguyên trạng thái khóa và hiển thị phản hồi.
@@ -81,11 +81,11 @@ Dữ liệu mẫu thực tế của dự án được lưu trữ tại file: [`s
 
 ### 3.3. Màn hình 2: Product Master & Planner
 - **Bảng Danh mục Sản phẩm 3 Vùng (`ProductCard3Zone.jsx`)**:
-  - Vùng 1 (Trái - 5/12): 5 trường dữ liệu sản phẩm (Tên, Nhánh đề tài, Nhóm chủ đề, Bài toán nỗi đau, Đối tượng mục tiêu). Thẻ đặc biệt cho Tên Miền hiển thị danh sách chips mở rộng.
+  - Vùng 1 (Trái - 5/12): 5 trường dữ liệu sản phẩm (Tên, Nhánh đề tài, Nhóm chủ đề, Bài toán nỗi đau, Đối tượng mục tiêu). Thẻ đặc biệt cho Domain Registry hiển thị danh sách chips mở rộng.
   - Vùng 2 (Giữa - 3/12): Đồng bộ Meta Ads API thời gian thực (Trạng thái Live/Disconnected, Số chiến dịch đang chạy, Ngày bắt đầu, Leads, SQLs, CPL, CVR, Spend).
   - Vùng 3 (Phải - 4/12): Khối *Chẩn đoán Hệ thống* (Badge trạng thái, Vấn đề, Giải pháp) và nút bấm CTA hành động theo ngữ cảnh (ví dụ: *"Tạo Camp Speed Demo"*, *"Tạo Camp Combo CA + HĐ"*).
 - **Bộ Lọc Thương Hiệu Inline (Segmented Control)**:
-  - 3 Nút lọc: `Tất cả (12)`, `🏢 MBC (Matbao-corp) (8)`, `🧾 MBI (Matbao-invoice) (4)`.
+  - 3 Nút lọc: `Tất cả (12)`, `🏢 Alpha (Matbao-corp) (8)`, `🧾 Beta (Matbao-invoice) (4)`.
   - Chấm đỏ nhấp nháy (`animate-ping`) cảnh báo thương hiệu đang có sản phẩm thiếu camp hoặc cảnh báo rủi ro.
 - **Thanh tìm kiếm theo từ khóa** và nút **`+ Thêm Sản Phẩm`**.
 
@@ -119,10 +119,10 @@ Dữ liệu mẫu thực tế của dự án được lưu trữ tại file: [`s
 2. **Báo Cáo Tuần Tự Động (`WeeklyReportModal.jsx`)**:
    - Bộ chọn tuần động (`Week Picker`): Chọn xem và chuyển đổi giữa Tuần 37, Tuần 38, Tuần 39...
    - Chỉnh sửa trực tiếp số liệu KPI (`Inline Editing`): Nhấp đúp vào số Lead/SQL để sửa số thực tế.
-   - Nút **`✨ Chạy Phân Tích`**: Hệ thống phân tích số liệu vừa nhập, đánh giá tỷ lệ đạt mục tiêu của MBC và MBI, tổng hợp nguyên nhân và đề xuất hành động.
+   - Nút **`✨ Chạy Phân Tích`**: Hệ thống phân tích số liệu vừa nhập, đánh giá tỷ lệ đạt mục tiêu của Alpha và Beta, tổng hợp nguyên nhân và đề xuất hành động.
    - Nút **`Lưu Bản Nháp`** và **`Sửa Chữ`**: Cho phép chỉnh sửa câu chữ báo cáo.
    - Nút **`Bắn báo cáo vào Teams`**: Định dạng văn bản chuẩn Microsoft Teams Markdown và bắn bản tóm tắt vào kênh Teams của ban giám đốc/quản lý kèm thông báo toast.
-   - Popup chọn người nhận báo cáo (`Kính gửi (To)`): Gợi ý Lâm Quang Thịnh (Acting Marketing Manager).
+   - Popup chọn người nhận báo cáo (`Kính gửi (To)`): Gợi ý Alex (Head of Marketing).
 3. **Quản Lý Team & Tự Động Nhắc Việc (`TeamManagementModal.jsx`)**:
    - Quản lý danh sách nhân sự thực tế, gắn vai trò Approver / Assignee.
    - Cấu hình kênh thông báo chuẩn hóa: *Gửi Direct Message qua Teams* và *Mention (@) vào Channel của Team*.
@@ -144,7 +144,7 @@ Khi chuyển giao dự án, chatbot/lập trình viên tiếp theo cần lưu ý
 - **Giải pháp cần làm**: Xây dựng Backend API (REST hoặc GraphQL với Node.js/Express, NestJS hoặc Supabase/Firebase) và kết nối Database (PostgreSQL / Supabase / MongoDB). Cần lưu trữ bảng `products`, `campaigns`, `master_plans`, `tasks`, `users`, `weekly_reports`.
 
 ### ⚠️ Hạn chế 2: Chưa có Hệ Thống Xác Thực & Phân Quyền Thật (Auth & Real RBAC)
-- **Vấn đề**: Multi-user switcher (`UserSelector.jsx`) hiện chỉ đổi object `currentUser` trong React state phía client. Bất kỳ ai cũng có thể bấm đổi sang tài khoản của Lâm Quang Thịnh để duyệt kế hoạch mà không cần đăng nhập mật khẩu hay bảo mật.
+- **Vấn đề**: Multi-user switcher (`UserSelector.jsx`) hiện chỉ đổi object `currentUser` trong React state phía client. Bất kỳ ai cũng có thể bấm đổi sang tài khoản của Alex để duyệt kế hoạch mà không cần đăng nhập mật khẩu hay bảo mật.
 - **Giải pháp cần làm**: 
   - Triển khai Authentication (NextAuth, Supabase Auth, Firebase Auth hoặc JWT Auth).
   - Phân quyền Backend (Role-Based Access Control - RBAC) dựa trên 3 bảng đã thiết kế ERD: `users`, `roles`, `permissions`.
@@ -194,8 +194,8 @@ Dưới đây là thứ tự ưu tiên đề xuất cho chatbot / lập trình v
 ### 🎯 Giai đoạn 3: Phân Quyền Người Dùng & Quản Trị Tổ Chức (Priority: Trung Bình)
 - [ ] **Task 3.1**: Triển khai trang Đăng nhập / Đăng ký (Login / SSO).
 - [ ] **Task 3.2**: Phân quyền chi tiết:
-  - C-Level / Manager (Lâm Quang Thịnh): Toàn quyền duyệt Master Plan, chỉnh sửa KPI, gửi báo cáo.
-  - Growth Executive (Lê Phạm Minh Châu): Quyền lập Plan, tạo task, chạy chiến dịch.
+  - C-Level / Manager (Alex): Toàn quyền duyệt Master Plan, chỉnh sửa KPI, gửi báo cáo.
+  - Growth Executive (Sarah): Quyền lập Plan, tạo task, chạy chiến dịch.
   - Team Members: Chỉ xem và kéo task của mình, nộp bài bàn giao.
 
 ### 🎯 Giai đoạn 4: Tích Hợp Kênh Giao Tiếp Thực Tế (Priority: Mở Rộng)
@@ -237,7 +237,7 @@ Dưới đây là thứ tự ưu tiên đề xuất cho chatbot / lập trình v
 ## 7. ĐẶC TẢ KỸ THUẬT: TÍCH HỢP PHÊ DUYỆT MASTER PLAN TRỰC TIẾP TRÊN MS TEAMS QUA ADAPTIVE CARD
 
 ### 1. Mục Đích Tính Năng (Business & Technical Objectives)
-- **Tối ưu thời gian phản hồi (Low Latency Approval)**: Cho phép C-Level / Approver (như Lâm Quang Thịnh - Acting Marketing Manager) nhận thông báo có Master Plan mới ngay trên Microsoft Teams (Desktop & Mobile App) của doanh nghiệp.
+- **Tối ưu thời gian phản hồi (Low Latency Approval)**: Cho phép C-Level / Approver (như Alex - Head of Marketing) nhận thông báo có Master Plan mới ngay trên Microsoft Teams (Desktop & Mobile App) của doanh nghiệp.
 - **Duyệt không cần chuyển ngữ cảnh (Zero-Context Switching)**: Người duyệt có thể đọc nhanh tóm tắt thông số cốt lõi (Ngân sách, SQLs KPI, Thông điệp chính, Phân bổ 2 sub-campaigns) và bấm nút **"Phê duyệt"** hoặc **"Từ chối"** kèm lý do trực tiếp trên thẻ tương tác (Interactive Adaptive Card) mà không cần đăng nhập hay mở web Growth Loop.
 - **Đồng bộ thời gian thực (Real-time Bi-directional Sync)**: Trạng thái duyệt trên Teams được đồng bộ tức thì về hệ thống Growth Loop, tự động mở khóa các task con trên Kanban Board.
 
@@ -251,8 +251,8 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
    - Icon nhận diện Bot & Huy hiệu hệ thống: `[⚡ Growth Loop Enterprise Bot]`
    - Tiêu đề chính: `📋 YÊU CẦU PHÊ DUYỆT KẾ HOẠCH CHIẾN DỊCH (MASTER PLAN)`
    - FactSet khởi tạo:
-     * **Sản phẩm:** `Mắt Bão - Cloud Hosting Doanh Nghiệp (MBN)`
-     * **Người lập kế hoạch:** `Lê Phạm Minh Châu (Senior Growth Executive)`
+     * **Sản phẩm:** `TechCorp - Managed Cloud Hosting Doanh Nghiệp (MBN)`
+     * **Người lập kế hoạch:** `Sarah (Growth Lead)`
      * **Thời gian gửi:** `Hôm nay, 16:30`
      * **Tổng ngân sách:** `15.000.000 VNĐ`
      * **Trạng thái:** `⏳ Đang chờ Quản lý phê duyệt`
@@ -334,15 +334,15 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
       "facts": [
         {
           "title": "Sản phẩm / Brand:",
-          "value": "Mắt Bão - Cloud Hosting Doanh Nghiệp"
+          "value": "TechCorp - Managed Cloud Hosting Doanh Nghiệp"
         },
         {
           "title": "Người lập:",
-          "value": "Lê Phạm Minh Châu (Senior Growth Executive)"
+          "value": "Sarah (Growth Lead)"
         },
         {
           "title": "Người duyệt chỉ định:",
-          "value": "Lâm Quang Thịnh (Acting Marketing Manager)"
+          "value": "Alex (Head of Marketing)"
         },
         {
           "title": "Tổng ngân sách:",
@@ -364,7 +364,7 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
       "items": [
         {
           "type": "TextBlock",
-          "text": "🎯 **Thông Điệp Chủ Đạo:** 'Giải pháp Cloud Hosting chuẩn tốc độ cao - Miễn phí dịch chuyển dữ liệu 100%'",
+          "text": "🎯 **Thông Điệp Chủ Đạo:** 'Giải pháp Managed Cloud Hosting chuẩn tốc độ cao - Miễn phí dịch chuyển dữ liệu 100%'",
           "wrap": true,
           "size": "Small"
         },
@@ -393,7 +393,7 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
       "data": {
         "action": "approve",
         "planId": "plan-1727160000",
-        "approver": "Lâm Quang Thịnh",
+        "approver": "Alex",
         "approverEmail": "approver@demo.local"
       }
     },
@@ -426,7 +426,7 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
             "data": {
               "action": "reject",
               "planId": "plan-1727160000",
-              "approver": "Lâm Quang Thịnh",
+              "approver": "Alex",
               "approverEmail": "approver@demo.local"
             }
           }
@@ -466,16 +466,16 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
      ├─────────────────────────────────────────┐
      ▼                                         ▼
 [Update Teams Card in-place]         [Auto-spawn Tasks on Kanban]
-"✅ Đã duyệt bởi Lâm Quang Thịnh"     Sinh các task con phân vai
+"✅ Đã duyệt bởi Alex"     Sinh các task con phân vai
                                      (Content, Design, Video, Ads)
 ```
 
 #### Chi Tiết 4 Bước Vận Hành:
 
 - **Bước 1 (Trigger & Dispatch)**:
-  * Khi Senior Growth Executive (Lê Phạm Minh Châu) hoàn tất form trong `GeminiGuidedPlannerModal.jsx` và bấm *"Chốt Kế Hoạch"*, Frontend gửi request `POST /api/v1/master-plans`.
+  * Khi Growth Lead (Sarah) hoàn tất form trong `GeminiGuidedPlannerModal.jsx` và bấm *"Chốt Kế Hoạch"*, Frontend gửi request `POST /api/v1/master-plans`.
   * Backend lưu bản ghi với trạng thái `pending_approval`.
-  * Background Worker kích hoạt Microsoft Graph API (hoặc Teams Incoming Webhook) gửi thẻ Adaptive Card trực tiếp tới cuộc trò chuyện cá nhân (1:1 chat) hoặc Channel của Người duyệt (Lâm Quang Thịnh).
+  * Background Worker kích hoạt Microsoft Graph API (hoặc Teams Incoming Webhook) gửi thẻ Adaptive Card trực tiếp tới cuộc trò chuyện cá nhân (1:1 chat) hoặc Channel của Người duyệt (Alex).
 
 - **Bước 2 (User Action on Teams)**:
   * Người duyệt mở Teams trên điện thoại hoặc máy tính, xem tóm tắt FactSet.
@@ -488,13 +488,13 @@ Thẻ được thiết kế theo chuẩn **Adaptive Card 1.4+** với bố cục
   * Cập nhật bản ghi `master_plans`:
     * Nếu Approve: `status = 'approved'`, `approved_at = NOW()`, `approved_by = 'mem-thinh'`.
     * Nếu Reject: `status = 'rejected'`, `rejected_at = NOW()`, `reject_reason = payload.rejectReason`.
-  * Backend gửi HTTP response kèm payload thẻ cập nhật tại chỗ (**Update Card in-place**). Thẻ cũ trên Teams được làm mới ngay lập tức: các nút tương tác biến mất, thay bằng banner màu xanh tĩnh: `"✅ Kế hoạch chiến dịch đã được Lâm Quang Thịnh phê duyệt lúc 16:35"`.
+  * Backend gửi HTTP response kèm payload thẻ cập nhật tại chỗ (**Update Card in-place**). Thẻ cũ trên Teams được làm mới ngay lập tức: các nút tương tác biến mất, thay bằng banner màu xanh tĩnh: `"✅ Kế hoạch chiến dịch đã được Alex phê duyệt lúc 16:35"`.
 
 - **Bước 4 (Kanban Board Task Automation)**:
   * Khi kế hoạch được duyệt, hệ thống tự động bóc tách các Sub-campaigns (Phễu 1 & Phễu 2) thành các Task con:
-    * Task 1: *Viết Ad Copy Teasing 15s* -> Gán cho `Hoàng Minh Khôi (Social Executive)`.
-    * Task 2: *Thiết kế Banner Carousel* -> Gán cho `Nguyễn Duy Quý (Intern)`.
-    * Task 3: *Cài đặt chiến dịch Lead Ads* -> Gán cho `Nguyễn Ngọc Khánh (Marketing Executive)`.
+    * Task 1: *Viết Ad Copy Teasing 15s* -> Gán cho `Member A (Social Executive)`.
+    * Task 2: *Thiết kế Banner Carousel* -> Gán cho `Member C (Intern)`.
+    * Task 3: *Cài đặt chiến dịch Lead Ads* -> Gán cho `Member B (Marketing Executive)`.
   * Các task này xuất hiện ngay trên bảng Kanban Board ở cột **"Briefing / Cần Sản Xuất"**, đồng thời kích hoạt lịch đếm ngược deadline và tự động ping nhắc việc qua Teams theo cấu hình trong `TeamManagementModal.jsx`.
 
 ---
@@ -510,7 +510,7 @@ Hệ thống đã được thiết kế sẵn hạ tầng BaaS **Supabase (Postg
   - Trigger tự động sinh `version_hash` chống duyệt đè (Optimistic Concurrency Control).
   - Row Level Security (RLS) policies.
   - Cấu hình Supabase Storage bucket `creative-assets`.
-  - Dữ liệu Seed ban đầu cho 12 sản phẩm thực tế (MBC & MBI) và 6 thành viên trong team.
+  - Dữ liệu Seed ban đầu cho 12 sản phẩm thực tế (Alpha & Beta) và 6 thành viên trong team.
 
 ### 2. Các Bước Kích Hoạt Database Thật
 1. Tạo một project mới tại [Supabase Dashboard](https://supabase.com).

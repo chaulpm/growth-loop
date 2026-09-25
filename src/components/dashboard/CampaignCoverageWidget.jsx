@@ -16,17 +16,17 @@ export default function CampaignCoverageWidget({
     coveragePercent = 67 
   } = coverageData || {};
 
-  // Filter products by brand
-  const mbcProducts = products.filter(p => p.brand === 'MBC');
-  const mbiProducts = products.filter(p => p.brand === 'MBI');
+  // Filter products by brand (Alpha & Beta, with legacy MBC/MBI support)
+  const alphaProducts = products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC');
+  const betaProducts = products.filter(p => p.brand === 'Beta' || p.brand === 'MBI');
 
-  const mbcTotal = mbcProducts.length || 8;
-  const mbcCovered = mbcProducts.filter(p => (p.metaSync?.activeCampaignsCount || 0) > 0).length || 5;
-  const mbcPercent = mbcTotal > 0 ? Math.round((mbcCovered / mbcTotal) * 100) : 63;
+  const alphaTotal = alphaProducts.length || 8;
+  const alphaCovered = alphaProducts.filter(p => (p.metaSync?.activeCampaignsCount || 0) > 0).length || 5;
+  const alphaPercent = alphaTotal > 0 ? Math.round((alphaCovered / alphaTotal) * 100) : 63;
 
-  const mbiTotal = mbiProducts.length || 4;
-  const mbiCovered = mbiProducts.filter(p => (p.metaSync?.activeCampaignsCount || 0) > 0).length || 3;
-  const mbiPercent = mbiTotal > 0 ? Math.round((mbiCovered / mbiTotal) * 100) : 75;
+  const betaTotal = betaProducts.length || 4;
+  const betaCovered = betaProducts.filter(p => (p.metaSync?.activeCampaignsCount || 0) > 0).length || 3;
+  const betaPercent = betaTotal > 0 ? Math.round((betaCovered / betaTotal) * 100) : 75;
 
   // Gap products without any active campaign
   const gapProducts = products.filter(p => (p.metaSync?.activeCampaignsCount || 0) === 0);
@@ -103,36 +103,36 @@ export default function CampaignCoverageWidget({
           </div>
         </div>
 
-        {/* 4. Brand Coverage Breakdown (MBC & MBI) */}
+        {/* 4. Brand Coverage Breakdown (Alpha & Beta) */}
         <div className="space-y-3 pt-1">
           <div className="flex items-center justify-between text-xs">
             <span className="font-bold text-slate-800 tracking-tight flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-indigo-600" />
-              Độ phủ theo Nhánh thương hiệu
+              Độ phủ theo Khối kinh doanh
             </span>
             <span className="text-[11px] text-slate-400 font-medium">2 Khối kinh doanh</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Nhánh MBC */}
+            {/* Khối Alpha */}
             <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
-                  <span>🏢</span> MBC (Corp)
+                  <span>🚀</span> Khối Alpha (SaaS & Cloud)
                 </span>
                 <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full">
-                  {mbcCovered}/{mbcTotal} ({mbcPercent}%)
+                  {alphaCovered}/{alphaTotal} ({alphaPercent}%)
                 </span>
               </div>
               <div className="w-full bg-slate-200/70 h-1.5 rounded-full overflow-hidden">
                 <div 
                   className="bg-indigo-600 h-full rounded-full transition-all duration-500" 
-                  style={{ width: `${mbcPercent}%` }} 
+                  style={{ width: `${alphaPercent}%` }} 
                 />
               </div>
               {/* Product Pills */}
               <div className="flex flex-wrap gap-1 pt-1">
-                {mbcProducts.slice(0, 6).map(p => {
+                {alphaProducts.slice(0, 6).map(p => {
                   const hasCamp = (p.metaSync?.activeCampaignsCount || 0) > 0;
                   return (
                     <span 
@@ -149,33 +149,33 @@ export default function CampaignCoverageWidget({
                     </span>
                   );
                 })}
-                {mbcProducts.length > 6 && (
+                {alphaProducts.length > 6 && (
                   <span className="text-[10px] px-1.5 py-0.5 rounded-md text-slate-500 bg-slate-100 font-medium">
-                    +{mbcProducts.length - 6} khác
+                    +{alphaProducts.length - 6} khác
                   </span>
                 )}
               </div>
             </div>
 
-            {/* Nhánh MBI */}
+            {/* Khối Beta */}
             <div className="p-3 rounded-xl bg-slate-50/70 border border-slate-200/70 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-xs text-slate-900 flex items-center gap-1.5">
-                  <span>🧾</span> MBI (Invoice)
+                  <span>⚡</span> Khối Beta (Enterprise Solutions)
                 </span>
                 <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded-full">
-                  {mbiCovered}/{mbiTotal} ({mbiPercent}%)
+                  {betaCovered}/{betaTotal} ({betaPercent}%)
                 </span>
               </div>
               <div className="w-full bg-slate-200/70 h-1.5 rounded-full overflow-hidden">
                 <div 
                   className="bg-indigo-600 h-full rounded-full transition-all duration-500" 
-                  style={{ width: `${mbiPercent}%` }} 
+                  style={{ width: `${betaPercent}%` }} 
                 />
               </div>
               {/* Product Pills */}
               <div className="flex flex-wrap gap-1 pt-1">
-                {mbiProducts.map(p => {
+                {betaProducts.map(p => {
                   const hasCamp = (p.metaSync?.activeCampaignsCount || 0) > 0;
                   const isWarning = p.aiDiagnosis?.urgency === 'warning';
                   return (

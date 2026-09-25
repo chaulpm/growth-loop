@@ -199,7 +199,7 @@ export default function TaskQualityControlWidget({
                       <div className="flex items-center space-x-1.5">
                         <span className="font-semibold text-slate-500">Người lập:</span>
                         <UserSelector
-                          user={{ name: plan.creator || 'Lê Phạm Minh Châu', role: plan.creatorRole || 'Growth Marketing Lead' }}
+                          user={{ name: plan.creator || 'Sarah', role: plan.creatorRole || 'Growth Lead' }}
                           teamMembers={teamMembers}
                           onSelect={(member) => {
                             if (onUpdatePlan) {
@@ -216,7 +216,7 @@ export default function TaskQualityControlWidget({
                       <div className="flex items-center space-x-1.5">
                         <span className="font-semibold text-slate-500">Người duyệt:</span>
                         <UserSelector
-                          user={{ name: plan.reviewer || plan.approver || 'Lâm Quang Thịnh', role: plan.reviewerRole || plan.approverRole || 'Acting Marketing Manager', isApprover: true }}
+                          user={{ name: plan.reviewer || plan.approver || 'Alex', role: plan.reviewerRole || plan.approverRole || 'Head of Marketing', isApprover: true }}
                           teamMembers={teamMembers}
                           filterType="approvers"
                           onSelect={(member) => {
@@ -317,7 +317,7 @@ export default function TaskQualityControlWidget({
                       ? 'bg-slate-50/90 border border-slate-200 opacity-65 cursor-not-allowed select-none'
                       : 'bg-slate-50/70 border border-slate-200/50 hover:border-slate-300'
                   }`}
-                  title={isLocked ? (task.lockMessage || 'Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa') : undefined}
+                  title={isLocked ? (task.lockMessage || 'Chờ Alex duyệt Master Plan để mở khóa') : undefined}
                 >
                   <div className="space-y-1 min-w-0 flex-1">
                     <div className="flex items-center space-x-2 flex-wrap gap-y-1">
@@ -338,7 +338,7 @@ export default function TaskQualityControlWidget({
                       {isLocked && (
                         <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200">
                           <Lock className="w-2.5 h-2.5 mr-1 text-amber-600" />
-                          {task.lockMessage || 'Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa'}
+                          {task.lockMessage || 'Chờ Alex duyệt Master Plan để mở khóa'}
                         </span>
                       )}
                     </div>

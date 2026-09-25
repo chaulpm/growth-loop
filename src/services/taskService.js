@@ -21,11 +21,11 @@ export async function fetchTasks() {
   }
 
   const teamRoster = [
-    { name: 'Hoàng Minh Khôi', role: 'Social Executive' },
-    { name: 'Nguyễn Duy Quý', role: 'Intern' },
-    { name: 'Nguyễn Ngọc Khánh', role: 'Marketing Executive' },
-    { name: 'Lê Phạm Minh Châu', role: 'Senior Growth Executive' },
-    { name: 'Võ Thị Thu Hiền', role: 'SEO Executive' }
+    { name: 'Member A', role: 'Social Media Lead' },
+    { name: 'Member C', role: 'Design & Creative' },
+    { name: 'Member B', role: 'Performance Marketing' },
+    { name: 'Sarah', role: 'Growth Lead' },
+    { name: 'Member D', role: 'SEO & Content' }
   ];
 
   return data.map((t, idx) => {
@@ -36,8 +36,8 @@ export async function fetchTasks() {
       stage: t.stage || 'not_started',
       type: t.task_type || 'Content',
       team: t.task_type || 'Content',
-      campaign: 'Kế hoạch Mắt Bão',
-      brand: idx % 2 === 0 ? 'MBC' : 'MBI',
+      campaign: 'Kế hoạch TechCorp Growth',
+      brand: idx % 2 === 0 ? 'Alpha' : 'Beta',
       assignee: member.name,
       assigneeRole: member.role,
       dueDate: t.due_date,

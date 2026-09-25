@@ -45,7 +45,7 @@ export async function saveWeeklyReport(reportData) {
     period: reportData.period || '15/09/2026 - 21/09/2026',
     title: reportData.weekTitle || 'Báo Cáo Growth Marketing - Tuần 38',
     executive_summary: reportData.executiveSummary || '',
-    recipients: reportData.recipients || reportData.defaultRecipients || 'Lâm Quang Thịnh',
+    recipients: reportData.recipients || reportData.defaultRecipients || 'Alex',
     conversion_metrics: reportData.conversionTracking?.items || [],
     the_good: reportData.theGood || [],
     the_bad_and_risks: reportData.theBadAndRisks || [],

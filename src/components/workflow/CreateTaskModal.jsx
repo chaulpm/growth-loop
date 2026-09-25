@@ -26,10 +26,10 @@ export default function CreateTaskModal({
 }) {
   // Form State
   const [title, setTitle] = useState('');
-  const [productId, setProductId] = useState('mbi-einvoice');
+  const [productId, setProductId] = useState(products[0]?.id || 'prod-einvoice');
   const [stage, setStage] = useState('in_review'); // Mặc định: In Review để nộp bài thẳng
   const [taskType, setTaskType] = useState('Content'); // 'Content' | 'Design' | 'Video'
-  const [assignee, setAssignee] = useState(teamMembers[0]?.name || 'Hoàng Minh Khôi');
+  const [assignee, setAssignee] = useState(teamMembers[0]?.name || 'Member A');
   const [deadline, setDeadline] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() + 3);
@@ -135,7 +135,7 @@ Với công nghệ OCR tự động:
     }
 
     const selectedProd = products.find(p => p.id === productId) || products[0];
-    const brand = selectedProd?.brand || (productId.startsWith('mbi') ? 'MBI' : 'MBC');
+    const brand = selectedProd?.brand || (productId.startsWith('mbi') || productId.startsWith('beta') ? 'Beta' : 'Alpha');
 
     // Tìm role của assignee
     const memberObj = teamMembers.find(m => m.name === assignee);
@@ -165,7 +165,7 @@ Với công nghệ OCR tự động:
       severity: priority === 'high' ? 'danger' : 'normal',
       urgency: priority === 'high' ? 'danger' : 'normal',
       creativeBrief: {
-        objective: `Quảng bá sản phẩm ${selectedProd?.name || 'Mắt Bão'}`,
+        objective: `Quảng bá sản phẩm ${selectedProd?.name || 'TechCorp'}`,
         targetPersona: 'Chủ doanh nghiệp, Quản lý tài chính, IT Manager',
         keyMessage: content.slice(0, 150) || title.trim(),
         deliverables: `Tài nguyên ${taskType} chuẩn kích thước và thông điệp`,
@@ -251,7 +251,7 @@ Với công nghệ OCR tự động:
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Ví dụ: Viết bài Social quảng bá Hóa đơn điện tử MBI..."
+              placeholder="Ví dụ: Viết bài Social quảng bá E-Invoicing Platform..."
               className="w-full px-4 py-2.5 text-xs sm:text-sm bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:bg-white focus:border-indigo-400 text-slate-900 transition-all font-medium"
             />
           </div>
@@ -270,17 +270,17 @@ Với công nghệ OCR tự động:
                 onChange={(e) => setProductId(e.target.value)}
                 className="w-full px-3.5 py-2.5 text-xs bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:bg-white focus:border-indigo-400 text-slate-900 font-medium"
               >
-                <optgroup label="🏢 MBC (Matbao-corp)">
-                  {products.filter(p => p.brand === 'MBC').map(p => (
+                <optgroup label="🚀 Khối Alpha (SaaS & Cloud)">
+                  {products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC').map(p => (
                     <option key={p.id} value={p.id}>
-                      MBC — {p.name}
+                      Alpha — {p.name}
                     </option>
                   ))}
                 </optgroup>
-                <optgroup label="🧾 MBI (Matbao-invoice)">
-                  {products.filter(p => p.brand === 'MBI').map(p => (
+                <optgroup label="⚡ Khối Beta (Enterprise Solutions)">
+                  {products.filter(p => p.brand === 'Beta' || p.brand === 'MBI').map(p => (
                     <option key={p.id} value={p.id}>
-                      MBI — {p.name}
+                      Beta — {p.name}
                     </option>
                   ))}
                 </optgroup>

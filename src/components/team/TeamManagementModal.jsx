@@ -115,9 +115,9 @@ export default function TeamManagementModal({
   const getGeminiPreviewText = () => {
     switch (selectedTone) {
       case 'gentle':
-        return "Chào Hoàng Minh Khôi, campaign Mắt Bão sắp đến hạn rồi, bạn ráng chốt hoàn thiện ad copy trước 5h chiều nay nhé! Có khó khăn gì cứ nhắn team hỗ trợ nha ❤️";
+        return "Chào Member A, campaign TechCorp sắp đến hạn rồi, bạn ráng chốt hoàn thiện ad copy trước 5h chiều nay nhé! Có khó khăn gì cứ nhắn team hỗ trợ nha ❤️";
       case 'professional':
-        return "Thông báo tiến độ: Task Banner Carousel thuộc chiến dịch Mắt Bão sẽ đến hạn trong 2 giờ tới. Đề nghị upload asset hoàn thiện lên hệ thống trước 17:00.";
+        return "Thông báo tiến độ: Task Banner Carousel thuộc chiến dịch TechCorp sẽ đến hạn trong 2 giờ tới. Đề nghị upload asset hoàn thiện lên hệ thống trước 17:00.";
       case 'urgent':
         return "🚨 CẢNH BÁO DEADLINE: Task Banner Carousel đang trễ hạn kiểm duyệt 2 giờ. Chiến dịch có nguy cơ bị hoãn on-air. Vui lòng upload asset và kiểm tra ngay!";
       default:
@@ -233,7 +233,7 @@ export default function TeamManagementModal({
                 Thêm Nhân Sự Mới (Add Member)
               </h4>
               <span className="text-[11px] text-slate-400">
-                Nhập tên linh hoạt (VD: Hoàng Minh Khôi, Nguyễn Ngọc Khánh...)
+                Nhập tên linh hoạt (VD: Member A, Member B...)
               </span>
             </div>
 
@@ -247,7 +247,7 @@ export default function TeamManagementModal({
                     type="text"
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
-                    placeholder="Tên nhân sự (VD: Hoàng Minh Khôi, Võ Thị Thu Hiền...)"
+                    placeholder="Tên nhân sự (VD: Member A, Member D...)"
                     className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-slate-800 placeholder-slate-400 bg-white"
                   />
                 </div>
@@ -488,11 +488,11 @@ export default function TeamManagementModal({
                           <div className="bg-slate-50/80 rounded-lg p-2.5 grid grid-cols-2 gap-2 text-[11px] border border-slate-100">
                             <div>
                               <span className="text-slate-400 block text-[10px] font-medium uppercase">Sản phẩm / Brand</span>
-                              <span className="font-semibold text-slate-800">Mắt Bão (Cloud Hosting)</span>
+                              <span className="font-semibold text-slate-800">TechCorp (Managed Cloud Hosting)</span>
                             </div>
                             <div>
                               <span className="text-slate-400 block text-[10px] font-medium uppercase">Người phụ trách</span>
-                              <span className="font-semibold text-indigo-700">@Hoàng Minh Khôi</span>
+                              <span className="font-semibold text-indigo-700">@Member A</span>
                             </div>
                             <div>
                               <span className="text-slate-400 block text-[10px] font-medium uppercase">Hạn chót (Deadline)</span>

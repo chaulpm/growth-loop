@@ -19,7 +19,7 @@ export default function ProductCard3Zone({ product, onTriggerAction }) {
   const { metaSync, aiDiagnosis } = product;
   const isSyncLive = metaSync?.status === 'live';
   const hasCampaigns = metaSync?.activeCampaignsCount > 0;
-  const isMBC = product.brand === 'MBC';
+  const isAlpha = product.brand === 'Alpha' || product.brand === 'MBC';
 
   return (
     <div className="bg-white rounded-3xl shadow-sm hover:shadow-md border border-slate-200/80 hover:border-slate-300 transition-all overflow-hidden">
@@ -33,11 +33,11 @@ export default function ProductCard3Zone({ product, onTriggerAction }) {
             {/* Brand Badge & Category */}
             <div className="flex items-center space-x-2 mb-1.5">
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                isMBC 
+                isAlpha 
                   ? 'bg-blue-50 text-blue-700 border border-blue-100' 
                   : 'bg-emerald-50 text-emerald-700 border border-emerald-100'
               }`}>
-                {isMBC ? '🏢 MBC (Matbao-corp)' : '🏢 MBI (Matbao-invoice)'}
+                {isAlpha ? '🚀 Khối Alpha (SaaS & Cloud)' : '⚡ Khối Beta (Enterprise Solutions)'}
               </span>
 
               <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">

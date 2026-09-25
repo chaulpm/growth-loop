@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS public.users (
 );
 
 -- ============================================================================
--- 3. BẢNG PRODUCTS (DANH MỤC 12 SẢN PHẨM MBC & MBI)
+-- 3. BẢNG PRODUCTS (DANH MỤC 12 SẢN PHẨM KHỐI ALPHA & BETA)
 -- ============================================================================
 CREATE TABLE IF NOT EXISTS public.products (
-    id TEXT PRIMARY KEY, -- 'prod-vibehost', 'prod-domain', etc.
-    brand TEXT NOT NULL CHECK (brand IN ('MBC', 'MBI')),
+    id TEXT PRIMARY KEY, -- 'prod-cloud-server', 'prod-domain', etc.
+    brand TEXT NOT NULL CHECK (brand IN ('Alpha', 'Beta', 'MBC', 'MBI')),
     name TEXT NOT NULL,
     category TEXT NOT NULL,
     target_persona TEXT NOT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS public.weekly_reports (
     period TEXT NOT NULL,
     title TEXT NOT NULL,
     executive_summary TEXT,
-    recipients TEXT DEFAULT 'Lâm Quang Thịnh',
+    recipients TEXT DEFAULT 'Alex',
     status TEXT DEFAULT 'active',
     conversion_metrics JSONB DEFAULT '[]'::jsonb,
     the_good JSONB DEFAULT '[]'::jsonb,
@@ -188,38 +188,38 @@ CREATE POLICY "Allow All Insert Reports" ON public.weekly_reports FOR INSERT WIT
 CREATE POLICY "Allow All Update Reports" ON public.weekly_reports FOR UPDATE USING (true);
 
 -- ============================================================================
--- 10. DỮ LIỆU SEED BAN ĐẦU (SEED DATA: 6 USERS & 12 REAL PRODUCTS)
+-- 10. DỮ LIỆU SEED BAN ĐẦU (SEED DATA: 6 USERS & 12 PRODUCTS)
 -- ============================================================================
 
 -- Seed 6 Nhân sự thực tế (Demo)
 INSERT INTO public.users (id, full_name, email, role, department, avatar, avatar_color, platform, contact, auto_reminder, is_approver, is_owner)
 VALUES 
-('mem-thinh', 'Lâm Quang Thịnh', 'thinh.lam@demo.local', 'Acting Marketing Manager', 'Marketing Management', 'LT', 'bg-indigo-700', 'Gửi Direct Message qua Teams', 'thinh.lam@demo.local', false, true, false),
-('mem-chau', 'Lê Phạm Minh Châu', 'chau.le@demo.local', 'Senior Growth Executive', 'Growth Marketing', 'LC', 'bg-emerald-600', 'Gửi Direct Message qua Teams', 'chau.le@demo.local', true, false, true),
-('mem-khoi', 'Hoàng Minh Khôi', 'khoi.hoang@demo.local', 'Social Executive', 'Social & Content', 'HK', 'bg-purple-600', 'Mention (@) vào Channel của Team', '@khoi.hoang', true, false, false),
-('mem-khanh', 'Nguyễn Ngọc Khánh', 'khanh.nguyen@demo.local', 'Marketing Executive', 'Paid Media & Operations', 'NK', 'bg-blue-600', 'Gửi Direct Message qua Teams', 'khanh.nguyen@demo.local', true, false, false),
-('mem-hien', 'Võ Thị Thu Hiền', 'hien.vo@demo.local', 'SEO Executive', 'Organic & Web SEO', 'VH', 'bg-teal-600', 'Gửi Direct Message qua Teams', 'hien.vo@demo.local', true, false, false),
-('mem-quy', 'Nguyễn Duy Quý', 'quy.nguyen@demo.local', 'Intern', 'Marketing Operations', 'NQ', 'bg-amber-600', 'Mention (@) vào Channel của Team', '@quy.nguyen', true, false, false)
+('mem-alex', 'Alex', 'alex@growthloop.demo', 'Head of Marketing', 'Marketing Management', 'AL', 'bg-indigo-700', 'Gửi Direct Message qua Teams', 'alex@growthloop.demo', false, true, false),
+('mem-sarah', 'Sarah', 'sarah@growthloop.demo', 'Growth Lead', 'Growth Marketing', 'SA', 'bg-emerald-600', 'Gửi Direct Message qua Teams', 'sarah@growthloop.demo', true, false, true),
+('mem-a', 'Member A', 'member.a@growthloop.demo', 'Social Media Lead', 'Social & Content', 'MA', 'bg-purple-600', 'Mention (@) vào Channel của Team', '@member.a', true, false, false),
+('mem-b', 'Member B', 'member.b@growthloop.demo', 'Performance Marketing', 'Paid Media & Operations', 'MB', 'bg-blue-600', 'Gửi Direct Message qua Teams', 'member.b@growthloop.demo', true, false, false),
+('mem-d', 'Member D', 'member.d@growthloop.demo', 'SEO & Content', 'Organic & Web SEO', 'MD', 'bg-teal-600', 'Gửi Direct Message qua Teams', 'member.d@growthloop.demo', true, false, false),
+('mem-c', 'Member C', 'member.c@growthloop.demo', 'Design & Creative', 'Marketing Operations', 'MC', 'bg-amber-600', 'Mention (@) vào Channel của Team', '@member.c', true, false, false)
 ON CONFLICT (id) DO UPDATE SET full_name = EXCLUDED.full_name, role = EXCLUDED.role;
 
--- Seed 12 Sản phẩm thực tế (8 MBC + 4 MBI)
+-- Seed 12 Sản phẩm thực tế (8 Khối Alpha + 4 Khối Beta)
 INSERT INTO public.products (id, brand, name, category, target_persona, problem_statement, key_message, domain_extensions, meta_sync_data)
 VALUES
--- KHỐI MBC
-('prod-vibehost', 'MBC', 'Vibe Host', 'High-Performance Hosting', 'Lập trình viên, Web Agency, Doanh nghiệp cần website tải cực nhanh', 'Hosting thông thường dễ bị chậm và nghẽn khi có đợt traffic tăng đột biến', 'Tốc độ vượt trội - Chuẩn tải trang dưới 0.8 giây', '[]'::jsonb, '{"campaignCount": 2, "leads": 190, "sqls": 14, "cpl": 4.10, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
-('prod-domain', 'MBC', 'Tên Miền', 'Domain Registry & Brand Protection', 'Chủ shop, Startup, Doanh nghiệp vừa thành lập muốn bảo vệ tên thương hiệu', 'Khách hàng phân vân giữa tên miền quốc gia và quốc tế, lo sợ bị đối thủ mua mất tên thương hiệu', 'Đăng ký tên miền chính thức - Khởi tạo nhận diện thương hiệu online chỉ trong 1 phút', '["Tên miền .VN / .COM", "Tên miền .CLOUD", "Tên miền .IO", "Tên miền .AI", "Tên miền .XYZ", "Tên miền .ASIA", "Tên miền .ICU", "Tên miền ngành sắc đẹp", "Tên miền quốc tế"]'::jsonb, '{"campaignCount": 4, "leads": 540, "sqls": 38, "cpl": 2.80, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
-('prod-gws', 'MBC', 'Google Workspace', 'Cloud Productivity', 'Doanh nghiệp SMEs cần môi trường làm việc cộng tác và bảo mật email', 'Dùng email miễn phí thiếu chuyên nghiệp, dễ bị spam và khó quản lý phân quyền nhân sự', 'Bộ công cụ làm việc chuẩn Google - Hỗ trợ kỹ thuật 24/7 và xuất hóa đơn VAT hợp lệ', '[]'::jsonb, '{"campaignCount": 3, "leads": 210, "sqls": 19, "cpl": 5.20, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
-('prod-m365', 'MBC', 'Microsoft 365 Copilot', 'Enterprise AI & Workplace', 'Lãnh đạo doanh nghiệp, Trưởng phòng muốn tăng tốc độ xử lý công việc bằng AI', 'Nhân sự mất quá nhiều thời gian tổng hợp báo cáo, viết email và làm slide thuyết trình', 'Tích hợp Trí tuệ Nhân tạo vào Word, Excel, Teams - Tăng 40% năng suất làm việc', '[]'::jsonb, '{"campaignCount": 2, "leads": 145, "sqls": 16, "cpl": 7.50, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
-('prod-bizmail', 'MBC', 'Email doanh nghiệp', 'Secure Business Email', 'Hộ kinh doanh và doanh nghiệp nhỏ cần email theo tên miền với chi phí tiết kiệm', 'Chi phí các gói Cloud Workplace quá cao trong khi nhu cầu chỉ là gửi nhận email tin cậy', 'Email theo tên miền riêng - Bộ lọc chống spam 99% - Chi phí tối ưu cho SMEs', '[]'::jsonb, '{"campaignCount": 2, "leads": 130, "sqls": 11, "cpl": 3.90, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
-('prod-cloudhost', 'MBC', 'Cloud Hosting', 'Cloud Infrastructure', 'Doanh nghiệp thương mại điện tử, Website lượng truy cập lớn cần độ ổn định 99.9%', 'Server sập vào các dịp flash sale khiến doanh nghiệp tổn thất doanh thu lớn', 'Hạ tầng Cloud mạnh mẽ - Khả năng tự động co giãn tài nguyên trong tích tắc', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
-('prod-vmc', 'MBC', 'Chứng chỉ VMC', 'Email Brand Identity & BIMI', 'Ngân hàng, Fintech, Tập đoàn cần hiển thị logo tích xanh trên hộp thư Gmail', 'Email gửi cho khách hàng thường xuyên bị rơi vào spam hoặc bị đối tượng xấu giả mạo', 'Gắn logo thương hiệu xác thực lên hộp thư khách hàng - Nâng tầm uy tín', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
-('prod-smime', 'MBC', 'Chứng chỉ S-MIME', 'Email Encryption & Digital Sign', 'Tổ chức tài chính, Bảo hiểm, Doanh nghiệp cần bảo mật và mã hóa email tuyệt đối', 'Rủi ro rò rỉ nội dung hợp đồng hoặc thông tin nhạy cảm qua email thông thường', 'Ký số và mã hóa đầu cuối email - Tiêu chuẩn an toàn bảo mật cấp doanh nghiệp', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
+-- KHỐI ALPHA
+('prod-vibehost', 'Alpha', 'Cloud Server Pro', 'Cloud Infrastructure', 'Lập trình viên, Web Agency, Doanh nghiệp cần website tải cực nhanh', 'Hosting thông thường dễ bị chậm và nghẽn khi có đợt traffic tăng đột biến', 'Tốc độ vượt trội - Chuẩn tải trang dưới 0.8 giây', '[]'::jsonb, '{"campaignCount": 2, "leads": 190, "sqls": 14, "cpl": 4.10, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
+('prod-domain', 'Alpha', 'Domain Registry', 'Domain Registrar & DNS', 'Chủ shop, Startup, Doanh nghiệp vừa thành lập muốn bảo vệ tên thương hiệu', 'Khách hàng phân vân giữa tên miền quốc gia và quốc tế, lo sợ bị đối thủ mua mất tên thương hiệu', 'Đăng ký tên miền chính thức - Khởi tạo nhận diện thương hiệu online chỉ trong 1 phút', '["Tên miền .VN / .COM", "Tên miền .CLOUD", "Tên miền .IO", "Tên miền .AI", "Tên miền .XYZ", "Tên miền .ASIA", "Tên miền .ICU", "Tên miền ngành sắc đẹp", "Tên miền quốc tế"]'::jsonb, '{"campaignCount": 4, "leads": 540, "sqls": 38, "cpl": 2.80, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
+('prod-gws', 'Alpha', 'Enterprise Workspace', 'Cloud Productivity', 'Doanh nghiệp SMEs cần môi trường làm việc cộng tác và bảo mật email', 'Dùng email miễn phí thiếu chuyên nghiệp, dễ bị spam và khó quản lý phân quyền nhân sự', 'Bộ công cụ làm việc chuẩn Google - Hỗ trợ kỹ thuật 24/7 và xuất hóa đơn VAT hợp lệ', '[]'::jsonb, '{"campaignCount": 3, "leads": 210, "sqls": 19, "cpl": 5.20, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
+('prod-m365', 'Alpha', 'AI Productivity Suite', 'Enterprise AI & Workplace', 'Lãnh đạo doanh nghiệp, Trưởng phòng muốn tăng tốc độ xử lý công việc bằng AI', 'Nhân sự mất quá nhiều thời gian tổng hợp báo cáo, viết email và làm slide thuyết trình', 'Tích hợp Trí tuệ Nhân tạo vào quy trình vận hành - Tăng 40% năng suất làm việc', '[]'::jsonb, '{"campaignCount": 2, "leads": 145, "sqls": 16, "cpl": 7.50, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
+('prod-bizmail', 'Alpha', 'Business Email Pro', 'Secure Business Email', 'Hộ kinh doanh và doanh nghiệp nhỏ cần email theo tên miền với chi phí tiết kiệm', 'Chi phí các gói Cloud Workplace quá cao trong khi nhu cầu chỉ là gửi nhận email tin cậy', 'Email theo tên miền riêng - Bộ lọc chống spam 99% - Chi phí tối ưu cho SMEs', '[]'::jsonb, '{"campaignCount": 2, "leads": 130, "sqls": 11, "cpl": 3.90, "isSynced": true, "adAccountId": "act_88319201"}'::jsonb),
+('prod-cloudhost', 'Alpha', 'Managed Cloud Hosting', 'Cloud Infrastructure', 'Doanh nghiệp thương mại điện tử, Website lượng truy cập lớn cần độ ổn định 99.9%', 'Server sập vào các dịp flash sale khiến doanh nghiệp tổn thất doanh thu lớn', 'Hạ tầng Cloud mạnh mẽ - Khả năng tự động co giãn tài nguyên trong tích tắc', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
+('prod-vmc', 'Alpha', 'Brand Security VMC', 'Email Brand Identity & BIMI', 'Ngân hàng, Fintech, Tập đoàn cần hiển thị logo tích xanh trên hộp thư Gmail', 'Email gửi cho khách hàng thường xuyên bị rơi vào spam hoặc bị đối tượng xấu giả mạo', 'Gắn logo thương hiệu xác thực lên hộp thư khách hàng - Nâng tầm uy tín', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
+('prod-smime', 'Alpha', 'Enterprise S-MIME', 'Email Encryption & Digital Sign', 'Tổ chức tài chính, Bảo hiểm, Doanh nghiệp cần bảo mật và mã hóa email tuyệt đối', 'Rủi ro rò rỉ nội dung hợp đồng hoặc thông tin nhạy cảm qua email thông thường', 'Ký số và mã hóa đầu cuối email - Tiêu chuẩn an toàn bảo mật cấp doanh nghiệp', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_88319201"}'::jsonb),
 
--- KHỐI MBI
-('prod-einvoice', 'MBI', 'Hoá đơn điện tử', 'E-Invoice Nghị định 123', 'Doanh nghiệp, Kế toán trưởng cần xuất và quản lý hóa đơn hợp lệ theo quy định Thuế', 'Quy trình xuất hóa đơn thủ công tốn thời gian và dễ sai sót thông tin kê khai', 'Phần mềm hóa đơn điện tử chuẩn Nghị định 123 - Kết nối trực tiếp cơ quan Thuế', '[]'::jsonb, '{"campaignCount": 3, "leads": 340, "sqls": 32, "cpl": 3.60, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
-('prod-econtract', 'MBI', 'Hợp đồng điện tử', 'E-Contract & Digital Signature', 'Phòng Pháp chế, HR, Kinh doanh cần ký kết thỏa thuận từ xa không cần gặp mặt', 'Ký hợp đồng giấy tốn chi phí chuyển phát nhanh và mất nhiều ngày để hoàn tất chữ ký', 'Ký kết hợp đồng số mọi lúc mọi nơi - Pháp lý vững chắc theo Luật Giao dịch điện tử', '[]'::jsonb, '{"campaignCount": 2, "leads": 175, "sqls": 18, "cpl": 4.80, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
-('prod-invoicedoc', 'MBI', 'Hoá đơn đầu vào', 'Automated Invoice Processing', 'Kế toán doanh nghiệp xử lý hàng trăm hóa đơn mua hàng mỗi tháng', 'Nhập liệu thủ công từng hóa đơn vào phần mềm kế toán vừa chậm vừa dễ thất lạc chứng từ', 'Tự động kiểm tra tính hợp lệ và cảnh báo rủi ro thuế từ doanh nghiệp bỏ trốn', '[]'::jsonb, '{"campaignCount": 1, "leads": 110, "sqls": 12, "cpl": 4.20, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
-('prod-digitalsign', 'MBI', 'Chữ ký số', 'Token HSM & Cloud CA', 'Chủ doanh nghiệp, Kế toán cần ký số kê khai thuế, hải quan và phát hành hóa đơn', 'Chữ ký số USB Token cũ dễ mất mát, bất tiện khi phải ký trên thiết bị di động', 'Chữ ký số từ xa Cloud CA - Ký mọi văn bản ngay trên điện thoại không cần USB', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_77410294"}'::jsonb)
+-- KHỐI BETA
+('prod-einvoice', 'Beta', 'E-Invoicing Platform', 'E-Invoicing & Compliance', 'Doanh nghiệp, Kế toán trưởng cần xuất và quản lý hóa đơn hợp lệ theo quy định Thuế', 'Quy trình xuất hóa đơn thủ công tốn thời gian và dễ sai sót thông tin kê khai', 'Phần mềm hóa đơn điện tử chuẩn thông tư mới - Kết nối trực tiếp cơ quan Thuế', '[]'::jsonb, '{"campaignCount": 3, "leads": 340, "sqls": 32, "cpl": 3.60, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
+('prod-econtract', 'Beta', 'E-Contract Suite', 'E-Contract & Digital Signature', 'Phòng Pháp chế, HR, Kinh doanh cần ký kết thỏa thuận từ xa không cần gặp mặt', 'Ký hợp đồng giấy tốn chi phí chuyển phát nhanh và mất nhiều ngày để hoàn tất chữ ký', 'Ký kết hợp đồng số mọi lúc mọi nơi - Pháp lý vững chắc theo Luật Giao dịch điện tử', '[]'::jsonb, '{"campaignCount": 2, "leads": 175, "sqls": 18, "cpl": 4.80, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
+('prod-invoicedoc', 'Beta', 'Smart AP Automation', 'Automated Invoice Processing', 'Kế toán doanh nghiệp xử lý hàng trăm hóa đơn mua hàng mỗi tháng', 'Nhập liệu thủ công từng hóa đơn vào phần mềm kế toán vừa chậm vừa dễ thất lạc chứng từ', 'Tự động kiểm tra tính hợp lệ và cảnh báo rủi ro thuế từ doanh nghiệp bỏ trốn', '[]'::jsonb, '{"campaignCount": 1, "leads": 110, "sqls": 12, "cpl": 4.20, "isSynced": true, "adAccountId": "act_77410294"}'::jsonb),
+('prod-digitalsign', 'Beta', 'Digital Signature CA', 'Token HSM & Cloud CA', 'Chủ doanh nghiệp, Kế toán cần ký số kê khai thuế, hải quan và phát hành hóa đơn', 'Chữ ký số USB Token cũ dễ mất mát, bất tiện khi phải ký trên thiết bị di động', 'Chữ ký số từ xa Cloud CA - Ký mọi văn bản ngay trên điện thoại không cần USB', '[]'::jsonb, '{"campaignCount": 0, "leads": 0, "sqls": 0, "cpl": 0, "isSynced": false, "adAccountId": "act_77410294"}'::jsonb)
 ON CONFLICT (id) DO UPDATE SET 
     name = EXCLUDED.name, 
     category = EXCLUDED.category,

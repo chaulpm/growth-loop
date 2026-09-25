@@ -48,7 +48,7 @@ export default function WeeklyReportModal({
 }) {
   const [data, setData] = useState(reportData);
   const [isEditing, setIsEditing] = useState(false);
-  const [recipients, setRecipients] = useState(reportData?.defaultRecipients || "Lâm Quang Thịnh");
+  const [recipients, setRecipients] = useState(reportData?.defaultRecipients || "Alex");
   const [executiveSummary, setExecutiveSummary] = useState(reportData?.executiveSummary || "");
   const [conversionItems, setConversionItems] = useState(reportData?.conversionTracking?.items || []);
   const [showHistory, setShowHistory] = useState(false);
@@ -114,7 +114,7 @@ export default function WeeklyReportModal({
   useEffect(() => {
     if (reportData) {
       setData(reportData);
-      setRecipients(reportData.defaultRecipients || "Lâm Quang Thịnh");
+      setRecipients(reportData.defaultRecipients || "Alex");
       setExecutiveSummary(reportData.executiveSummary || "");
       setConversionItems(reportData.conversionTracking?.items || []);
       setActionPlan(reportData.actionPlan || []);
@@ -237,39 +237,39 @@ export default function WeeklyReportModal({
   const handleRunAiAnalysis = () => {
     setIsAnalyzing(true);
     setTimeout(() => {
-      const mbiItem = conversionItems.find(i => i.id === 'conv-mbi') || conversionItems[0];
-      const mbnItem = conversionItems.find(i => i.id === 'conv-mbn') || conversionItems[1];
+      const betaItem = conversionItems.find(i => i.id === 'conv-beta' || i.id === 'conv-mbi') || conversionItems[0];
+      const alphaItem = conversionItems.find(i => i.id === 'conv-alpha' || i.id === 'conv-mbn') || conversionItems[1];
 
-      let mbiReason = "";
-      let mbiSuggestion = "";
-      if (mbiItem) {
-        if (mbiItem.rate < 80) {
-          mbiReason = `Tỷ lệ đơn hàng đạt ${mbiItem.rate}% (dưới mức an toàn 80%). Tần suất hiển thị quảng cáo (Frequency) chạm ngưỡng bão hòa (2.95), đối tượng mục tiêu bắt đầu có hiện tượng giảm tương tác với creative cũ.`;
-          mbiSuggestion = `Tung ngay bản cut Video Review 15s mới, kết nối thông báo tự động qua MS Teams Webhook và mở rộng thêm tệp Lookalike 2% để hạ CPL.`;
+      let betaReason = "";
+      let betaSuggestion = "";
+      if (betaItem) {
+        if (betaItem.rate < 80) {
+          betaReason = `Tỷ lệ đơn hàng đạt ${betaItem.rate}% (dưới mức an toàn 80%). Tần suất hiển thị quảng cáo (Frequency) chạm ngưỡng bão hòa (2.95), đối tượng mục tiêu bắt đầu có hiện tượng giảm tương tác với creative cũ.`;
+          betaSuggestion = `Tung ngay bản cut Video Review 15s mới, kết nối thông báo tự động qua MS Teams Webhook và mở rộng thêm tệp Lookalike 2% để hạ CPL.`;
         } else {
-          mbiReason = `Đơn hàng đạt ${mbiItem.actualDisplay} (${mbiItem.rate}%), giữ nhịp tăng trưởng ổn định. Chiến dịch Lead Ads ưu đãi hoá đơn đầu vào phản hồi tích cực từ nhóm Kế toán SMBs.`;
-          mbiSuggestion = `Tăng 20% ngân sách cho 2 ad set dẫn đầu, duy trì chạy song song phễu remarketing dùng thử.`;
+          betaReason = `Đơn hàng đạt ${betaItem.actualDisplay} (${betaItem.rate}%), giữ nhịp tăng trưởng ổn định. Chiến dịch Lead Ads ưu đãi Smart AP Automation phản hồi tích cực từ nhóm Kế toán SMBs.`;
+          betaSuggestion = `Tăng 20% ngân sách cho 2 ad set dẫn đầu, duy trì chạy song song phễu remarketing dùng thử.`;
         }
       }
 
-      let mbnReason = "";
-      let mbnSuggestion = "";
-      if (mbnItem) {
-        if (mbnItem.rate >= 100) {
-          mbnReason = `Doanh thu đạt ${mbnItem.actualDisplay} (${mbnItem.rate}%), vượt chỉ tiêu tuần. Nhờ sức hút lớn từ chiến dịch Combo Tên Miền .VN tặng kèm Email Doanh Nghiệp và tỷ lệ tái tục hosting ổn định.`;
-          mbnSuggestion = `Tiếp tục mở rộng tệp Lookalike 1% nhóm doanh nghiệp mới thành lập và chuẩn bị chương trình flash sale cuối tháng.`;
+      let alphaReason = "";
+      let alphaSuggestion = "";
+      if (alphaItem) {
+        if (alphaItem.rate >= 100) {
+          alphaReason = `Doanh thu đạt ${alphaItem.actualDisplay} (${alphaItem.rate}%), vượt chỉ tiêu tuần. Nhờ sức hút lớn từ chiến dịch Combo Domain Registry .VN tặng kèm Business Email Pro và tỷ lệ tái tục hosting ổn định.`;
+          alphaSuggestion = `Tiếp tục mở rộng tệp Lookalike 1% nhóm doanh nghiệp mới thành lập và chuẩn bị chương trình flash sale cuối tháng.`;
         } else {
-          mbnReason = `Doanh số đạt ${mbnItem.actualDisplay} (${mbnItem.rate}%), chưa đạt kỳ vọng do mảng Cloud Hosting chững lại giữa tháng.`;
-          mbnSuggestion = `Kích hoạt chương trình tặng thêm tháng sử dụng cho Vibe Host và gửi Email Drip kích thích gia hạn tên miền.`;
+          alphaReason = `Doanh số đạt ${alphaItem.actualDisplay} (${alphaItem.rate}%), chưa đạt kỳ vọng do mảng Managed Cloud Hosting chững lại giữa tháng.`;
+          alphaSuggestion = `Kích hoạt chương trình tặng thêm tháng sử dụng cho Cloud Server Pro và gửi Email Drip kích thích gia hạn tên miền.`;
         }
       }
 
       setConversionItems(prev => prev.map(item => {
-        if (item.id === 'conv-mbi') {
-          return { ...item, aiReason: mbiReason, aiSuggestion: mbiSuggestion };
+        if (item.id === 'conv-beta' || item.id === 'conv-mbi') {
+          return { ...item, aiReason: betaReason, aiSuggestion: betaSuggestion };
         }
-        if (item.id === 'conv-mbn') {
-          return { ...item, aiReason: mbnReason, aiSuggestion: mbnSuggestion };
+        if (item.id === 'conv-alpha' || item.id === 'conv-mbn') {
+          return { ...item, aiReason: alphaReason, aiSuggestion: alphaSuggestion };
         }
         return item;
       }));
@@ -277,7 +277,7 @@ export default function WeeklyReportModal({
       const currentW = availableWeeks.find(w => w.id === selectedWeekId);
       const weekLabel = currentW?.title || data.weekTitle;
       const periodLabel = currentW?.period || data.period;
-      const summaryText = `Báo cáo ${weekLabel} (${periodLabel}): Mảng MBI ghi nhận ${mbiItem?.actualDisplay || 0} đơn hàng (đạt ${mbiItem?.rate || 0}%), mảng MBN đạt ${mbnItem?.actualDisplay || 0} doanh thu (${mbnItem?.rate || 0}%). Đội ngũ Growth Marketing cần tiếp tục tập trung tối ưu hóa chi phí chuyển đổi CPL và đẩy nhanh tiến độ phê duyệt các asset đang tồn đọng.`;
+      const summaryText = `Báo cáo ${weekLabel} (${periodLabel}): Khối Beta ghi nhận ${betaItem?.actualDisplay || 0} đơn hàng (đạt ${betaItem?.rate || 0}%), Khối Alpha đạt ${alphaItem?.actualDisplay || 0} doanh thu (${alphaItem?.rate || 0}%). Đội ngũ Growth Marketing cần tiếp tục tập trung tối ưu hóa chi phí chuyển đổi CPL và đẩy nhanh tiến độ phê duyệt các asset đang tồn đọng.`;
       setExecutiveSummary(summaryText);
 
       setIsAiAnalyzed(true);
@@ -319,7 +319,7 @@ export default function WeeklyReportModal({
   // Bắn báo cáo vào MS Teams & copy định dạng Teams Markdown chuẩn
   const handleSendToTeams = () => {
     const conversionText = conversionItems && conversionItems.length > 0 ? `
-🎯 **THEO DÕI TỐI ƯU CHUYỂN ĐỔI (MBN & MBI):**
+🎯 **THEO DÕI TỐI ƯU CHUYỂN ĐỔI (KHỐI ALPHA & KHỐI BETA):**
 ${conversionItems.map(item => `* **${item.brandName}**: ${item.actualDisplay} / ${item.targetDisplay} (Đạt ${item.rate}% - ${item.rate >= 80 ? '🟢 An Toàn' : '🔴 Cần Chú Ý'})\n  ↳ *Đánh giá Hệ thống:* ${item.aiReason}\n  ↳ *Đề xuất:* ${item.aiSuggestion}`).join('\n')}
 ` : '';
 
@@ -479,7 +479,7 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
                 onSelect={(member) => setRecipients(member.name)}
                 variant="chip"
               />
-              <span className="text-slate-400">• Người lập: <strong className="text-slate-700">Lê Phạm Minh Châu</strong></span>
+              <span className="text-slate-400">• Người lập: <strong className="text-slate-700">Sarah</strong></span>
             </div>
           </div>
 
@@ -530,7 +530,7 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
             )}
           </div>
 
-          {/* KHỐI MỚI: THEO DÕI TỐI ƯU CHUYỂN ĐỔI (MBN & MBI) */}
+          {/* KHỐI MỚI: THEO DÕI TỐI ƯU CHUYỂN ĐỔI (KHỐI ALPHA & KHỐI BETA) */}
           <div className="space-y-3.5">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1 border-b border-indigo-100 gap-2">
               <div className="flex items-center space-x-2">
@@ -538,7 +538,7 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
                   <Target className="w-3.5 h-3.5" />
                 </span>
                 <h2 className="text-xs font-black uppercase tracking-wider text-slate-900 flex items-center">
-                  🎯 THEO DÕI TỐI ƯU CHUYỂN ĐỔI (MBN & MBI)
+                  🎯 THEO DÕI TỐI ƯU CHUYỂN ĐỔI (KHỐI ALPHA & KHỐI BETA)
                 </h2>
               </div>
               
@@ -766,14 +766,14 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                  {/* MBI History */}
+                  {/* Khối Beta History */}
                   <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
                     <div className="bg-slate-100/90 px-3 py-2 border-b border-slate-200 text-xs font-bold text-slate-800 flex justify-between items-center">
-                      <span>🧾 MBI (Mục tiêu: 22 Đơn/tuần)</span>
+                      <span>⚡ Khối Beta (Mục tiêu: 22 Đơn/tuần)</span>
                       <span className="text-[10px] text-slate-500 font-normal">Tháng 8 - Tháng 9</span>
                     </div>
                     <div className="divide-y divide-slate-100 text-[11px]">
-                      {conversionItems.find(i => i.id === 'conv-mbi')?.history?.map((h, idx) => (
+                      {conversionItems.find(i => i.id === 'conv-beta' || i.id === 'conv-mbi')?.history?.map((h, idx) => (
                         <div key={idx} className="px-3 py-1.5 flex items-center justify-between hover:bg-slate-50">
                           <span className="text-slate-600 font-medium">{h.period}</span>
                           <div className="flex items-center space-x-2">
@@ -845,7 +845,7 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
                           {item.productName}
                         </h3>
                         <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-bold uppercase ${
-                          item.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
+                          item.brand === 'Alpha' || item.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
                         }`}>
                           {item.brand}
                         </span>

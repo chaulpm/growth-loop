@@ -43,8 +43,8 @@ const KANBAN_COLUMNS = [
 const TASK_TYPES_LIST = ['Tất cả', 'Content', 'Design', 'Video'];
 const BRANDS_LIST = [
   { id: 'all', label: 'Tất cả' },
-  { id: 'MBC', label: '🏢 MBC (Matbao-corp)' },
-  { id: 'MBI', label: '🧾 MBI (Matbao-invoice)' }
+  { id: 'Alpha', label: '🚀 Khối Alpha (SaaS & Cloud)' },
+  { id: 'Beta', label: '⚡ Khối Beta (Enterprise Solutions)' }
 ];
 
 export default function TaskWorkflowBoard({ 
@@ -107,12 +107,16 @@ export default function TaskWorkflowBoard({
   const overdueInReviewTasks = tasks.filter(
     t => t.stage === 'in_review' && t.isOverdue
   );
-  const overdueAssignee = overdueInReviewTasks[0]?.assignee || 'Nguyễn Duy Quý';
+  const overdueAssignee = overdueInReviewTasks[0]?.assignee || 'Member C';
 
   // Filter tasks
   const filteredTasks = tasks.filter(task => {
     // Brand filter
-    if (selectedBrand !== 'all' && task.brand !== selectedBrand) return false;
+    if (selectedBrand !== 'all') {
+      if (selectedBrand === 'Alpha' && task.brand !== 'Alpha' && task.brand !== 'MBC') return false;
+      if (selectedBrand === 'Beta' && task.brand !== 'Beta' && task.brand !== 'MBI') return false;
+      if (selectedBrand !== 'Alpha' && selectedBrand !== 'Beta' && task.brand !== selectedBrand) return false;
+    }
 
     // Assignee filter
     if (selectedAssignee !== 'Tất cả' && task.assignee !== selectedAssignee) return false;
@@ -341,13 +345,13 @@ export default function TaskWorkflowBoard({
         className={`group bg-white rounded-2xl p-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] border border-slate-200/70 border-l-4 ${borderLeftColor} hover:border-indigo-200 hover:shadow-md transition-all cursor-pointer space-y-3 ${
           isLocked ? 'opacity-65 bg-slate-50/90' : ''
         }`}
-        title={isLocked ? (task.lockMessage || 'Chờ Lâm Quang Thịnh duyệt Master Plan để mở khóa') : undefined}
+        title={isLocked ? (task.lockMessage || 'Chờ Alex duyệt Master Plan để mở khóa') : undefined}
       >
         {/* Top Badges: Brand & Task Type & A/B Tag */}
         <div className="flex items-center justify-between text-[10px]">
           <div className="flex items-center space-x-1.5 flex-wrap gap-y-1">
             <span className={`px-2 py-0.5 rounded-full font-semibold uppercase ${
-              task.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
+              task.brand === 'Alpha' || task.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
             }`}>
               {task.brand}
             </span>
@@ -641,7 +645,7 @@ export default function TaskWorkflowBoard({
           {/* Các Làn Ngang (Swimlanes) theo từng Chiến dịch */}
           {uniqueCampaigns.map(campName => {
             const campTasks = filteredTasks.filter(t => (t.campaign || 'Chiến dịch chung') === campName);
-            const campBrand = campTasks[0]?.brand || 'MBC';
+            const campBrand = campTasks[0]?.brand || 'Alpha';
 
             return (
               <div 
@@ -655,7 +659,7 @@ export default function TaskWorkflowBoard({
                       {campName}
                     </span>
                     <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase ${
-                      campBrand === 'MBI' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-blue-50 text-blue-700 border border-blue-100'
+                      campBrand === 'Beta' || campBrand === 'MBI' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-blue-50 text-blue-700 border border-blue-100'
                     }`}>
                       {campBrand}
                     </span>

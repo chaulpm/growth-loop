@@ -3,8 +3,8 @@ import { INITIAL_PRODUCTS } from '../data/mockData';
 
 export async function fetchProducts(brandFilter = 'ALL') {
   if (!isSupabaseConfigured) {
-    if (brandFilter === 'MBC') return INITIAL_PRODUCTS.filter(p => p.brand === 'MBC');
-    if (brandFilter === 'MBI') return INITIAL_PRODUCTS.filter(p => p.brand === 'MBI');
+    if (brandFilter === 'Alpha' || brandFilter === 'MBC') return INITIAL_PRODUCTS.filter(p => p.brand === 'Alpha' || p.brand === 'MBC');
+    if (brandFilter === 'Beta' || brandFilter === 'MBI') return INITIAL_PRODUCTS.filter(p => p.brand === 'Beta' || p.brand === 'MBI');
     return INITIAL_PRODUCTS;
   }
 

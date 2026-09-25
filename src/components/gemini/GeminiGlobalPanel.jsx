@@ -40,7 +40,7 @@ export default function GeminiGlobalPanel({
     "✨ Đề xuất giải pháp xử lý 3 task đang trễ hạn",
     "✨ Xem đúc kết A/B Test mới nhất từ Thư viện Growth"
   ] : [
-    "✨ Tổng hợp ngân sách Mắt Bão Invoice & task trễ của team Content",
+    "✨ Tổng hợp ngân sách E-Invoicing Platform & task trễ của team Content",
     "✨ Sinh kế hoạch Top-of-Funnel cho DeskFlow Support",
     "✨ Kiểm tra trạng thái đồng bộ Meta Ads API"
   ];
@@ -59,7 +59,7 @@ export default function GeminiGlobalPanel({
     setTimeout(() => {
       setIsTyping(false);
 
-      if (textToSend.includes('Mắt Bão Invoice') || textToSend.includes('team Content')) {
+      if (textToSend.includes('E-Invoicing') || textToSend.includes('team Content')) {
         setMessages(prev => [
           ...prev,
           {
@@ -67,15 +67,15 @@ export default function GeminiGlobalPanel({
             type: 'invoice_summary_card',
             text: 'Tôi đã truy vấn dữ liệu thời gian thực từ Meta Ads API và Task Database. Dưới đây là báo cáo tổng hợp bạn yêu cầu:',
             data: {
-              productName: 'Mắt Bão Invoice',
+              productName: 'E-Invoicing Platform',
               budget: '$1,200',
               spend: '$1,200',
               conversions: '320 Leads • 28 SQLs',
               cpl: '$3.75',
               roas: '5.1x',
               delayedContentTasks: [
-                { id: 'tsk-02', name: 'Landing Page Copy: MS365 B2B', assignee: 'Ngọc', delay: 'Trễ 1 ngày' },
-                { id: 'tsk-03', name: 'Case Study SMB: Pipeline CRM', assignee: 'Quý', delay: 'Trễ 3 ngày' }
+                { id: 'tsk-02', name: 'Landing Page Copy: AI Productivity Suite', assignee: 'Member B', delay: 'Trễ 1 ngày' },
+                { id: 'tsk-03', name: 'Case Study SMB: Smart AP Automation', assignee: 'Member C', delay: 'Trễ 3 ngày' }
               ]
             }
           }
@@ -160,7 +160,7 @@ export default function GeminiGlobalPanel({
             }`}>
               <p>{msg.text}</p>
 
-              {/* Special Rich Response: Mắt Bão Invoice & Content Delay Summary */}
+              {/* Special Rich Response: E-Invoicing Platform & Content Delay Summary */}
               {msg.type === 'invoice_summary_card' && (
                 <div className="mt-3 p-3 bg-white rounded-xl border border-slate-200/80 space-y-2.5 text-slate-800 shadow-2xs">
                   <div className="font-bold text-indigo-950 flex items-center justify-between pb-1 border-b border-slate-100">
@@ -191,10 +191,10 @@ export default function GeminiGlobalPanel({
 
                     <div className="pt-1 flex space-x-1.5">
                     <button
-                      onClick={() => alert("Đã gửi ping tự động qua MS Teams nhắc việc cho Hoàng Minh Khôi và Nguyễn Duy Quý.")}
+                      onClick={() => alert("Đã gửi ping tự động qua MS Teams nhắc việc cho Member A và Member C.")}
                       className="w-full py-1.5 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold text-[10px] transition-colors"
                     >
-                      Nhắc việc Khôi & Quý (Teams)
+                      Nhắc việc Member A & Member C (Teams)
                     </button>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function GeminiGlobalPanel({
 
           <button
             type="button"
-            onClick={() => handleSendPrompt("✨ Hệ thống, tổng hợp ngân sách tháng này cho chiến dịch Mắt Bão Invoice và báo cáo tình trạng các task đang trễ hẹn của team Content.")}
+            onClick={() => handleSendPrompt("✨ Hệ thống, tổng hợp ngân sách tháng này cho chiến dịch E-Invoicing Platform và báo cáo tình trạng các task đang trễ hẹn của team Content.")}
             className="p-1.5 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-colors"
             title="Lệnh giọng nói (Voice Command)"
           >
