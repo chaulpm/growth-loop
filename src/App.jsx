@@ -13,9 +13,15 @@ import WeeklyReportModal from './components/report/WeeklyReportModal';
 import { INITIAL_PRODUCTS, DASHBOARD_DATA, INITIAL_TEAM_MEMBERS, WEEKLY_REPORT_DATA, CURRENT_USER } from './data/mockData';
 import { fetchTasks, createTasksBatch } from './services/taskService';
 import { createMasterPlan } from './services/masterPlanService';
+import { supabase, isSupabaseConfigured } from './lib/supabaseClient';
+import Login from './components/auth/Login';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function App() {
+  // Supabase Auth Session & Loading State
+  const [session, setSession] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
   const [activeTab, setActiveTab] = useState('control-center'); // 'control-center' | 'product-master' | 'task-workflow'
   const [selectedMonth, setSelectedMonth] = useState('2026-09');
 
@@ -51,6 +57,97 @@ export default function App() {
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);
+  };
+
+  // 1. Quản lý trạng thái Đăng nhập với Supabase Auth
+  useEffect(() => {
+    let isMounted = true;
+
+    async function checkAuth() {
+      if (isSupabaseConfigured && supabase) {
+        try {
+          const { data: { session: currentSession } } = await supabase.auth.getSession();
+          if (isMounted) {
+            if (currentSession) {
+              setSession(currentSession);
+              // Đồng bộ tên người dùng nếu có trong metadata
+              const metaName = currentSession.user?.user_metadata?.full_name;
+              if (metaName) {
+                const matchMember = teamMembers.find(m => m.name.toLowerCase() === metaName.toLowerCase());
+                if (matchMember) setCurrentUser(matchMember);
+              }
+            } else {
+              // Kiểm tra xem có guest session lưu trong localStorage không
+              const localGuest = localStorage.getItem('growthloop_guest_session');
+              if (localGuest) {
+                try {
+                  setSession(JSON.parse(localGuest));
+                } catch(e) {}
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('Lỗi khi lấy session từ Supabase:', err);
+          const localGuest = localStorage.getItem('growthloop_guest_session');
+          if (localGuest && isMounted) {
+            try { setSession(JSON.parse(localGuest)); } catch(e) {}
+          }
+        }
+      } else {
+        // Fallback kiểm tra guest session
+        const localGuest = localStorage.getItem('growthloop_guest_session');
+        if (localGuest && isMounted) {
+          try { setSession(JSON.parse(localGuest)); } catch(e) {}
+        }
+      }
+
+      if (isMounted) {
+        setAuthLoading(false);
+      }
+    }
+
+    checkAuth();
+
+    // Lắng nghe sự kiện đăng nhập / đăng xuất tự động từ Supabase
+    if (isSupabaseConfigured && supabase) {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, newSession) => {
+        if (isMounted) {
+          setSession(newSession);
+          if (!newSession) {
+            localStorage.removeItem('growthloop_guest_session');
+          } else {
+            const metaName = newSession.user?.user_metadata?.full_name;
+            if (metaName) {
+              const matchMember = teamMembers.find(m => m.name.toLowerCase() === metaName.toLowerCase());
+              if (matchMember) setCurrentUser(matchMember);
+            }
+          }
+        }
+      });
+
+      return () => {
+        isMounted = false;
+        subscription?.unsubscribe();
+      };
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [teamMembers]);
+
+  // Handler Đăng xuất (Logout)
+  const handleLogout = async () => {
+    try {
+      if (isSupabaseConfigured && supabase) {
+        await supabase.auth.signOut();
+      }
+    } catch (err) {
+      console.warn('Lỗi khi signOut:', err);
+    }
+    localStorage.removeItem('growthloop_guest_session');
+    setSession(null);
+    showToast('👋 Đã đăng xuất thành công khỏi hệ thống');
   };
 
   // Tải dữ liệu Tasks trực tiếp từ Supabase Database khi khởi động
@@ -251,6 +348,38 @@ export default function App() {
 
   const pendingReviewCount = tasks.filter(t => t.stage === 'in_review').length;
 
+  // 1. Loading splash screen khi đang xác thực session ban đầu
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center space-y-4 font-['Inter',sans-serif]">
+        <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-xl shadow-indigo-200 animate-pulse">
+          <Sparkles className="w-6 h-6 text-white" />
+        </div>
+        <div className="text-center space-y-1">
+          <div className="text-sm font-bold text-slate-800 tracking-tight">
+            Growth Loop OS
+          </div>
+          <div className="text-xs text-indigo-600 font-medium">
+            Đang xác thực phiên làm việc Supabase Auth...
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. Khóa bảo vệ: Nếu chưa đăng nhập, CHỈ hiển thị màn hình Login
+  if (!session) {
+    return (
+      <Login 
+        onLoginSuccess={(newSession) => {
+          setSession(newSession);
+          const userName = newSession?.user?.user_metadata?.full_name || newSession?.user?.email || 'Người dùng';
+          showToast(`✨ Chào mừng ${userName} quay trở lại hệ thống!`);
+        }} 
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#F9FAFB] text-slate-800 flex flex-col selection:bg-indigo-100 selection:text-indigo-900 font-['Inter',sans-serif]">
       
@@ -271,6 +400,7 @@ export default function App() {
           setCurrentUser(user);
           showToast(`Đã chuyển không gian làm việc sang: ${user.name} (${user.role})`);
         }}
+        onLogout={handleLogout}
         criticalAlertsCount={3}
         pendingReviewCount={pendingReviewCount}
       />

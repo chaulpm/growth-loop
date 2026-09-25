@@ -1,7 +1,8 @@
 import { 
   Sparkles, 
   Activity,
-  BarChart3
+  BarChart3,
+  LogOut
 } from 'lucide-react';
 import UserSelector from './common/UserSelector';
 import { CURRENT_USER, INITIAL_TEAM_MEMBERS } from '../data/mockData';
@@ -19,6 +20,7 @@ export default function Navigation({
   currentUser = CURRENT_USER,
   teamMembers = INITIAL_TEAM_MEMBERS,
   onSwitchUser,
+  onLogout,
   criticalAlertsCount = 3,
   pendingReviewCount = 2
 }) {
@@ -135,7 +137,7 @@ export default function Navigation({
 
             {/* Current User Pill & Multi-user Switcher */}
             {currentUser && (
-              <div className="pl-1.5 border-l border-slate-700/80 shrink-0">
+              <div className="pl-1.5 border-l border-slate-700/80 shrink-0 flex items-center space-x-1">
                 <UserSelector
                   user={currentUser}
                   teamMembers={teamMembers}
@@ -144,6 +146,18 @@ export default function Navigation({
                   }}
                   variant="nav"
                 />
+
+                {/* Nút Đăng xuất */}
+                {onLogout && (
+                  <button
+                    type="button"
+                    onClick={onLogout}
+                    title="Đăng xuất khỏi hệ thống"
+                    className="p-2 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-all cursor-pointer flex items-center justify-center shrink-0"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             )}
 
