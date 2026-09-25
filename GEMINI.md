@@ -24,7 +24,8 @@
   - `redeploy_project`, `rollback_project`: Cập nhật mã nguồn và quản lý phiên bản
   - `get_build_logs`, `get_runtime_logs`, `diagnose_deploy`: Giám sát và chẩn đoán sự cố
 - **Deployed Production Website**:
-  - **Refined UI/UX (Latest)**: `https://growthloop-os.vibe1.tinhgon.xyz` (Soft Pastel Minimalist Cleaned + Auth Gate)
+  - **Active Production (New Key)**: `https://growthloop-pro.vibe1.tinhgon.xyz` (Deployed via New PAT Key + Full Auth Gate + Clean UI)
+  - **Refined UI/UX**: `https://growthloop-os.vibe1.tinhgon.xyz` (Soft Pastel Minimalist Cleaned + Auth Gate)
   - **Official Public Demo (Auth-Secured)**: `https://growthloop-demo.cmc-1.vibenode.matbao.ai` (Supabase Auth Mandatory Gate + 100% White-label)
   - **Live URL (App)**: `https://growthloop-app.cmc-1.vibenode.matbao.ai`
   - **Legacy URL**: `https://growthloop.cmc-1.vibenode.matbao.ai`
