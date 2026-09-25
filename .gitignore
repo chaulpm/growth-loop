@@ -13,7 +13,6 @@ dist-ssr
 *.local
 
 # Environment & Local Secrets
-.env
 .env.local
 mcp_config.json
 deploy_vibehost.cjs
