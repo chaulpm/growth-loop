@@ -271,14 +271,14 @@ Với công nghệ OCR tự động:
                 className="w-full px-3.5 py-2.5 text-xs bg-slate-50 rounded-2xl border border-slate-200 focus:outline-none focus:bg-white focus:border-indigo-400 text-slate-900 font-medium"
               >
                 <optgroup label="🚀 Khối Alpha (SaaS & Cloud)">
-                  {products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC').map(p => (
+                  {products.filter(p => p.brand === 'Alpha').map(p => (
                     <option key={p.id} value={p.id}>
                       Alpha — {p.name}
                     </option>
                   ))}
                 </optgroup>
                 <optgroup label="⚡ Khối Beta (Enterprise Solutions)">
-                  {products.filter(p => p.brand === 'Beta' || p.brand === 'MBI').map(p => (
+                  {products.filter(p => p.brand === 'Beta').map(p => (
                     <option key={p.id} value={p.id}>
                       Beta — {p.name}
                     </option>

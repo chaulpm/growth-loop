@@ -15,8 +15,8 @@ export default function ProductMasterView({
   // Lọc sản phẩm theo Thương hiệu (Brand), Trạng thái và Tìm kiếm
   const filterProduct = (prod) => {
     // Brand filter
-    if (selectedBrand === 'Alpha' && prod.brand !== 'Alpha' && prod.brand !== 'MBC') return false;
-    if (selectedBrand === 'Beta' && prod.brand !== 'Beta' && prod.brand !== 'MBI') return false;
+    if (selectedBrand === 'Alpha' && prod.brand !== 'Alpha') return false;
+    if (selectedBrand === 'Beta' && prod.brand !== 'Beta') return false;
 
     // Status filter
     if (filterType === 'active' && (!prod.metaSync || prod.metaSync.activeCampaignsCount === 0)) return false;
@@ -38,13 +38,13 @@ export default function ProductMasterView({
     return true;
   };
 
-  const alphaProducts = products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC').filter(filterProduct);
-  const betaProducts = products.filter(p => p.brand === 'Beta' || p.brand === 'MBI').filter(filterProduct);
+  const alphaProducts = products.filter(p => p.brand === 'Alpha').filter(filterProduct);
+  const betaProducts = products.filter(p => p.brand === 'Beta').filter(filterProduct);
 
   const totalFilteredCount = alphaProducts.length + betaProducts.length;
 
-  const alphaAlertCount = products.filter(p => (p.brand === 'Alpha' || p.brand === 'MBC') && p.aiDiagnosis?.urgency === 'danger').length;
-  const betaAlertCount = products.filter(p => (p.brand === 'Beta' || p.brand === 'MBI') && p.aiDiagnosis?.urgency === 'danger').length;
+  const alphaAlertCount = products.filter(p => p.brand === 'Alpha' && p.aiDiagnosis?.urgency === 'danger').length;
+  const betaAlertCount = products.filter(p => p.brand === 'Beta' && p.aiDiagnosis?.urgency === 'danger').length;
 
   return (
     <div className="space-y-6">
@@ -124,7 +124,7 @@ export default function ProductMasterView({
             <button
               onClick={() => setSelectedBrand('Alpha')}
               className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                selectedBrand === 'Alpha' || selectedBrand === 'MBC'
+                selectedBrand === 'Alpha'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
@@ -139,7 +139,7 @@ export default function ProductMasterView({
             <button
               onClick={() => setSelectedBrand('Beta')}
               className={`relative flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                selectedBrand === 'Beta' || selectedBrand === 'MBI'
+                selectedBrand === 'Beta'
                   ? 'bg-white text-indigo-700 shadow-2xs font-bold'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
@@ -190,7 +190,7 @@ export default function ProductMasterView({
       <div className="space-y-8">
         
         {/* SECTION 1: 🚀 Khối Alpha (SaaS & Cloud) */}
-        {(selectedBrand === 'all' || selectedBrand === 'Alpha' || selectedBrand === 'MBC') && (
+        {(selectedBrand === 'all' || selectedBrand === 'Alpha') && (
           <div className="space-y-4 animate-in fade-in duration-200">
             
             {/* Header phân nhóm Alpha */}
@@ -232,7 +232,7 @@ export default function ProductMasterView({
         )}
 
         {/* SECTION 2: ⚡ Khối Beta (Enterprise Solutions) */}
-        {(selectedBrand === 'all' || selectedBrand === 'Beta' || selectedBrand === 'MBI') && (
+        {(selectedBrand === 'all' || selectedBrand === 'Beta') && (
           <div className="space-y-4 pt-2 animate-in fade-in duration-200">
             
             {/* Header phân nhóm Beta */}

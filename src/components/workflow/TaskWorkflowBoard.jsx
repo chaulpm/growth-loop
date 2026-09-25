@@ -113,8 +113,8 @@ export default function TaskWorkflowBoard({
   const filteredTasks = tasks.filter(task => {
     // Brand filter
     if (selectedBrand !== 'all') {
-      if (selectedBrand === 'Alpha' && task.brand !== 'Alpha' && task.brand !== 'MBC') return false;
-      if (selectedBrand === 'Beta' && task.brand !== 'Beta' && task.brand !== 'MBI') return false;
+      if (selectedBrand === 'Alpha' && task.brand !== 'Alpha') return false;
+      if (selectedBrand === 'Beta' && task.brand !== 'Beta') return false;
       if (selectedBrand !== 'Alpha' && selectedBrand !== 'Beta' && task.brand !== selectedBrand) return false;
     }
 
@@ -351,7 +351,7 @@ export default function TaskWorkflowBoard({
         <div className="flex items-center justify-between text-[10px]">
           <div className="flex items-center space-x-1.5 flex-wrap gap-y-1">
             <span className={`px-2 py-0.5 rounded-full font-semibold uppercase ${
-              task.brand === 'Alpha' || task.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
+              task.brand === 'Alpha' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
             }`}>
               {task.brand}
             </span>
@@ -659,7 +659,7 @@ export default function TaskWorkflowBoard({
                       {campName}
                     </span>
                     <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase ${
-                      campBrand === 'Beta' || campBrand === 'MBI' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-blue-50 text-blue-700 border border-blue-100'
+                      campBrand === 'Beta' ? 'bg-emerald-50 text-emerald-700 border border-emerald-100' : 'bg-blue-50 text-blue-700 border border-blue-100'
                     }`}>
                       {campBrand}
                     </span>

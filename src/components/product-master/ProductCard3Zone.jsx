@@ -19,7 +19,7 @@ export default function ProductCard3Zone({ product, onTriggerAction }) {
   const { metaSync, aiDiagnosis } = product;
   const isSyncLive = metaSync?.status === 'live';
   const hasCampaigns = metaSync?.activeCampaignsCount > 0;
-  const isAlpha = product.brand === 'Alpha' || product.brand === 'MBC';
+  const isAlpha = product.brand === 'Alpha';
 
   return (
     <div className="bg-white rounded-3xl shadow-sm hover:shadow-md border border-slate-200/80 hover:border-slate-300 transition-all overflow-hidden">

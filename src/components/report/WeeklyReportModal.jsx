@@ -845,7 +845,7 @@ ${actionPlan?.map((a, idx) => `${idx + 1}. ${a.text} ${a.checked ? '✅' : '⏳'
                           {item.productName}
                         </h3>
                         <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-bold uppercase ${
-                          item.brand === 'Alpha' || item.brand === 'MBC' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
+                          item.brand === 'Alpha' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700'
                         }`}>
                           {item.brand}
                         </span>

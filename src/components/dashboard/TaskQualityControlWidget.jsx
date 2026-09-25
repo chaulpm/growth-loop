@@ -178,7 +178,7 @@ export default function TaskQualityControlWidget({
                         Master Plan Chiến Dịch
                       </span>
                       <span className="text-[10px] font-semibold text-indigo-800 bg-indigo-100/80 px-2.5 py-0.5 rounded-full border border-indigo-200">
-                        {plan.brand || 'MBC'} • {plan.productName || 'Vibe Host'}
+                        {plan.brand || 'Alpha'} • {plan.productName || 'Cloud Suite'}
                       </span>
                       <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
                         isPlanApproved

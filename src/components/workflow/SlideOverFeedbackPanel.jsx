@@ -113,9 +113,9 @@ export default function SlideOverFeedbackPanel({
             <div className="space-y-1 min-w-0">
               <div className="flex items-center space-x-2 flex-wrap gap-y-1">
                 <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                  task.brand === 'Alpha' || task.brand === 'MBC' ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
+                  task.brand === 'Alpha' ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
                 }`}>
-                  {task.brand === 'Alpha' || task.brand === 'MBC' ? '🚀 Khối Alpha' : '⚡ Khối Beta'}
+                  {task.brand === 'Alpha' ? '🚀 Khối Alpha' : '⚡ Khối Beta'}
                 </span>
 
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-200/80 text-slate-700">
@@ -245,7 +245,7 @@ export default function SlideOverFeedbackPanel({
                           {task.assetPreview?.mockupOffer || 'Ưu Đãi Đặc Biệt'}
                         </span>
                         <span className="text-xs font-bold tracking-tight opacity-90">
-                          {task.brand === 'Alpha' || task.brand === 'MBC' ? 'TECHCORP • ALPHA' : 'TECHCORP • BETA'}
+                          {task.brand === 'Alpha' ? 'TECHCORP • ALPHA' : 'TECHCORP • BETA'}
                         </span>
                       </div>
 
@@ -266,7 +266,7 @@ export default function SlideOverFeedbackPanel({
                           <span className="ml-1 font-black">→</span>
                         </div>
                         <span className="text-[10px] text-white/70 font-mono">
-                          {task.brand === 'Alpha' || task.brand === 'MBC' ? 'techcorp.cloud' : 'techcorp.solutions'}
+                          {task.brand === 'Alpha' ? 'techcorp.cloud' : 'techcorp.solutions'}
                         </span>
                       </div>
 

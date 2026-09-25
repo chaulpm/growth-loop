@@ -71,9 +71,9 @@ export default function GeminiGuidedPlannerModal({
 
   const handleSelectProduct = (prod) => {
     setSelectedProduct(prod);
-    if (prod.id === 'mbc-vibe-host' || prod.name?.includes('Cloud Server')) {
+    if (prod.id === 'cloud-server-pro' || prod.name?.includes('Cloud Server')) {
       setKeyMessage('Tăng tốc Website NVMe - Chống nghẽn cổ chai mùa cao điểm');
-    } else if (prod.brand === 'Beta' || prod.brand === 'MBI') {
+    } else if (prod.brand === 'Beta') {
       setKeyMessage(`Giải pháp số ${prod.name} - Tự động hóa chuẩn quy định doanh nghiệp, tiết kiệm 70% thời gian`);
     } else {
       setKeyMessage(`Hạ tầng ${prod.name} - Tối ưu hiệu năng, bảo mật và hỗ trợ kỹ thuật 24/7`);
@@ -81,7 +81,7 @@ export default function GeminiGuidedPlannerModal({
   };
 
   // Dynamic campaign outputs based on selected product and target KPI
-  const isCloudServer = selectedProduct?.id === 'mbc-vibe-host' || selectedProduct?.name?.includes('Cloud Server');
+  const isCloudServer = selectedProduct?.id === 'cloud-server-pro' || selectedProduct?.name?.includes('Cloud Server');
   const camp1Title = isCloudServer
     ? 'Giới thiệu hạ tầng NVMe'
     : `Phủ tệp & Định vị thương hiệu: ${selectedProduct?.name || 'Sản phẩm'}`;

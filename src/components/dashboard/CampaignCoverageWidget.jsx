@@ -16,9 +16,9 @@ export default function CampaignCoverageWidget({
     coveragePercent = 67 
   } = coverageData || {};
 
-  // Filter products by brand (Alpha & Beta, with legacy MBC/MBI support)
-  const alphaProducts = products.filter(p => p.brand === 'Alpha' || p.brand === 'MBC');
-  const betaProducts = products.filter(p => p.brand === 'Beta' || p.brand === 'MBI');
+  // Filter products by brand (Alpha & Beta)
+  const alphaProducts = products.filter(p => p.brand === 'Alpha');
+  const betaProducts = products.filter(p => p.brand === 'Beta');
 
   const alphaTotal = alphaProducts.length || 8;
   const alphaCovered = alphaProducts.filter(p => (p.metaSync?.activeCampaignsCount || 0) > 0).length || 5;
